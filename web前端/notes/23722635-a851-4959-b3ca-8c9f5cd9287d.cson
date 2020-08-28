@@ -1,0 +1,29 @@
+createdAt: "2019-06-24T12:07:08.263Z"
+updatedAt: "2019-08-26T12:41:09.547Z"
+type: "MARKDOWN_NOTE"
+folder: "6328cc90110e506a740e"
+title: "日常"
+tags: [
+  "获取数组最后一个下标"
+  "vue如何使用rules对表单字段进行校验"
+]
+content: '''
+  # 日常
+  ###### 获取数组最后一个下标：
+  	let list = []; let page = list[list.lenght - 1]
+  ###### vue如何使用rules对表单字段进行校验
+  原文：[vue如何使用rules对表单字段进行校验 - 紫藤萝yu - 博客园](https://www.cnblogs.com/luoxuemei/p/9295506.html)
+  ###### 代码规范
+  原文：[代码规范 \\| Aotu.io - 前端代码规范](https://guide.aotu.io/docs/html/code.html)
+  
+  ######  js中获取键盘事件
+  原文：[js中获取键盘事件 - 全力以赴001 - 博客园](https://www.cnblogs.com/huzi007/p/3866272.html)
+  ###### 鼠标指针样式
+  原文：[CSS - 鼠标指针样式详解（cursor光标样式、自定义指针图片）](http://www.hangge.com/blog/cache/detail_2065.html)
+  ###### JS正则表达式详解
+  [JS基础篇--正则表达式详解 - 风雨过后见彩虹 - SegmentFault 思否](https://segmentfault.com/a/1190000000410591)
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

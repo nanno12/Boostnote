@@ -1,0 +1,33 @@
+createdAt: "2019-07-11T09:42:37.780Z"
+updatedAt: "2019-07-11T15:28:32.260Z"
+type: "MARKDOWN_NOTE"
+folder: "d12b700090b8756bb26f"
+title: "点击表格当前行radio单选选中  2019/7/11"
+tags: [
+  "table"
+  "input回车事件"
+]
+content: '''
+  ###### 点击表格当前行radio单选选中  2019/7/11
+  	methods:{
+  	handleCurrentChange(row){
+  	this.radio = this.tableData.indexOf(row);
+  	}
+  	}
+  	template slot-scope = "scope"
+  	 el-radio :lable = "scope.$index" @change.native ="get(scope.$index,scope.row)"
+  	 v-molde="radio" el-radio 
+  	template
+  ###### input回车事件 2019/7/11
+      <el-input v-model="text" 
+      placeholder="账号" 
+      @keyup.enter.native="page"></el-input>
+      page(){
+        console.log('回车事件成功');
+      }
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

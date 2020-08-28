@@ -1,0 +1,109 @@
+createdAt: "2019-11-18T06:35:30.901Z"
+updatedAt: "2019-11-19T15:34:50.401Z"
+type: "MARKDOWN_NOTE"
+folder: "beadd547cbf8bcba1f07"
+title: "2019/11/18 初入小程序"
+tags: [
+  "小程序"
+  "wechat"
+  "第一章"
+]
+content: '''
+  ### 2019/11/18 初入小程序 
+  ##### 关于配置（项目根路径）
+  app.js ：绑定生命周期回调函数、错误监听和页面不存在监听函数等。
+  app.jons：配置界面头部和底部的显示样式，路由
+  ##### 关于界面注册
+  1.page 构造器注册页面
+  	简单的可以直接用page注册
+  	page(){方法名}
+  2.Component构造器构造页面
+  	比较复杂的界面需要使用 methods:{}
+  	
+  	Component({
+  		data: {
+  				text: "This is page data."
+  		},
+  		methods: {
+  				onLoad: function(options) {
+  						// 页面创建时执行
+  				}
+  		}
+  	})
+  ##### 关于模块化
+  说明：可以将一些公共的代码抽离成为一个单独的 js 文件，作为一个模块。模块只有通过 module.exports 或者 exports 才能对外暴露接口。
+  1.建一个公共方法文件common.js
+  
+  	function sayHello(name) {
+  			console.log(`Hello ${name} !`)
+  	}
+  	function sayGoodbye(name) {
+  			console.log(`Goodbye ${name} !`)
+  	}
+  
+  	module.exports.sayHello = sayHello
+  	exports.sayGoodbye = sayGoodbye
+  2.在需要使用这些模块的文件中，使用 require 将公共代码引入
+  
+  	var common = require('common.js')
+  	Page({
+  			helloMINA: function() {
+  					common.sayHello('MINA')
+  			},
+  			goodbyeMINA: function() {
+  					common.sayGoodbye('MINA')
+  			}
+  	})
+  ##### 关于API
+  1.监听API：已on开头的列如：wx.onSocketOpen，wx.onCompassChange 等。
+  
+  	wx.onCompassChange(function (res) {
+  			console.log(res.direction)
+  	})
+  	
+  ##### 关于视图层
+  1.WXML:类似于HTML(绑定数据，列表渲染，条件渲染)
+  	模板：可以在模板中定义代码片段，然后在不同的地方调用。
+  	
+  		1>使用name属性，作为模板的名字
+  	<template name="msgItem">
+  			<view>
+  					<text> {{index}}: {{msg}} </text>
+  					<text> Time: {{time}} </text>
+  			</view>
+  		</template>
+  	使用模板
+  		2>使用 is 属性，声明需要的使用的模板，然后将模板所需要的 data 传入
+  		
+  引用：import和include。
+  
+  	1>import可以在该文件中使用目标文件定义的template
+  	2>include 可以将目标文件除了 <template/> <wxs/> 外的整个代码引入，相当于是拷贝到 include 位置
+  2.WXSS:类似于css组件样式，相比cssWXSS 扩展的特性有：尺寸单位,样式导入
+  1>rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素。
+  2>使用@import语句可以导入外联样式表，@import后跟需要导入的外联样式表的相对路径，用;表示语句结束。
+  
+  	@import "common.wxss";
+  	.middle-p {
+  			padding:15px;
+  	}
+  3>内联样式
+  在style尽量不要将静态样式写进去，会影响渲染速度
+  
+  	<view style="color:{{color}};" />
+  在css类名规范样式类名之间用空格分隔。
+  
+  	<view class="normal_view" />
+  
+  目前支持的选择器有：
+  .class	 #id	
+  element	view	选择所有 view 组件
+  element, element	view, checkbox	选择所有文档的 view 组件和所有的 checkbox 组件
+  ::after	view::after	在 view 组件后边插入内容
+  ::before	view::before	在 view 组件前边插入内容
+  
+  3.WXS：是小程序的脚本语言，可以结合WXML构建出界面
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

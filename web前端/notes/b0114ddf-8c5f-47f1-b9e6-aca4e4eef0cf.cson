@@ -1,0 +1,17 @@
+createdAt: "2019-11-20T06:28:46.813Z"
+updatedAt: "2019-11-20T06:29:56.817Z"
+type: "MARKDOWN_NOTE"
+folder: "beadd547cbf8bcba1f07"
+title: "使用小程序主语事项 2019/11/20"
+tags: [
+  "使用小程序主语事项"
+  "报错"
+  "bug"
+]
+content: '''
+  #### 使用小程序主语事项 2019/11/20
+  1.jons文件中不能有注释
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

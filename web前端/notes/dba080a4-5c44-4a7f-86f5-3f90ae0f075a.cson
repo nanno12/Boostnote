@@ -1,0 +1,66 @@
+createdAt: "2019-08-06T10:01:33.830Z"
+updatedAt: "2019-08-06T10:04:14.270Z"
+type: "SNIPPET_NOTE"
+folder: "d12b700090b8756bb26f"
+title: "element table固定表头，表的高度自适应解决方法"
+tags: [
+  "element_table固定表头，表的高度自适应解决方法"
+]
+description: "element table固定表头，表的高度自适应解决方法"
+snippets: [
+  {
+    linesHighlighted: [
+      22
+      6
+    ]
+    name: ""
+    mode: "Vue.js Component"
+    content: '''
+       element table固定表头，表的高度自适应解决方法  2019/8/6
+      
+      <el-table ref="table" :data="tableData" :height="tableHeight"></el-table>
+      
+      <script>
+      	第一种JS处理方式：
+      export default {
+          data(){
+              return {
+                  tableHeight: 50,
+                  tableData: []
+              }
+          },
+          mounted:function(){
+              setTimeout(() => {
+                  this.tableHeight = window.innerHeight - this.$refs.table.$el.offsetTop;
+              },100)
+      　　　　　//此处需要通过延迟方法来设置值，不然会出现值已更新，但页面没更新的问题
+              //this.$refs.table.$el.offsetTop：表格距离浏览器的高度
+          }
+      }
+      第二种JS处理方式：
+      export default {
+          data(){
+              return {
+                  tableHeight: 50,
+                  tableData: []
+              }
+          },
+          mounted:function(){
+              this.$nextTick(function () {
+                  this.tableHeight = window.innerHeight - this.$refs.table.$el.offsetTop - 50;
+                  
+                  // 监听窗口大小变化
+                  let self = this;
+                  window.onresize = function() {
+                      self.tableHeight = window.innerHeight - self.$refs.table.$el.offsetTop - 50
+                  }
+              })
+              //this.$refs.table.$el.offsetTop：表格距离浏览器的高度
+      　　　　 //50表示你想要调整的表格距离底部的高度（你可以自己随意调整），因为我们一般都有放分页组件的，所以需要给它留一个高度　
+          }
+      }
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

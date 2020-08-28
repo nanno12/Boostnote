@@ -1,0 +1,20 @@
+createdAt: "2019-07-30T13:25:49.676Z"
+updatedAt: "2019-08-28T11:06:03.794Z"
+type: "MARKDOWN_NOTE"
+folder: "f376965e603f38f2c59c"
+title: "最常用的ES6特性"
+tags: []
+content: '''
+  #### 最常用的ES6特性
+  let, const, class, extends, super, arrow functions, template string, destructuring, default, rest arguments
+  
+  	let 块级作用域
+  	const 不会被提升没有，
+  
+  扩展运算符
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

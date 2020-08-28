@@ -1,0 +1,103 @@
+createdAt: "2019-06-23T06:11:35.650Z"
+updatedAt: "2019-07-10T15:20:05.919Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vue脚手架搭建项目(mac本)"
+tags: []
+content: '''
+  # vue脚手架搭建项目(mac本)
+  1.$ sudo npm install -g vue-cli (第一次需要输入mac本开机密码)
+  2.$ vue -V (检测版本)
+  3.$ vue init webpack project-web (pproject-web项目名称)
+  4.yarn add 项目依赖 -S (安装项目依赖)
+   注意：首先要新建一个目录在当前目录下打开git命令
+  
+  
+  1.npm install -g @vue/cli(全局安装vue-cli3)
+  2.npm install -g @vue/cli-service-global(安装扩展，此后可以快速启动单个vue文件)
+  3.vue serve demo.vue (快速启动demo文件)
+  
+  sudo nom cache clean -f (清楚npm 缓存 （mac）)
+  sudo npm install -g n (安装最新版本的Node helper：)
+  
+  #  安装scss依赖
+  1.安装
+  yarn add sass-loader node-sass --save-dev
+  2.在build文件夹下的webpack.base.conf.js的rules里面添加配置
+  {
+      test: /\\.sass$/,
+      loaders: ['style', 'css', 'sass']
+  },
+  3.页面使用
+  
+  # 使用vue-cli 3.0搭建项目
+  1.vue create my-app
+  2.cd my-app
+  3.vue add element
+  
+  # Vue-cli 3.0 使用Sass Scss Less预处理器（自动化导入）
+  Sass
+  'use strict'
+  const path = require('path')
+  
+  function resolve (dir) {
+    return path.join(__dirname, dir)
+  }
+  module.exports = {
+    baseUrl: '/Cindy/',
+    chainWebpack: (config) => {
+      const oneOfsMap = config.module.rule('scss').oneOfs.store
+      oneOfsMap.forEach((item) => {
+        item
+          .use('sass-resources-loader')
+          .loader('sass-resources-loader')
+          .options({
+            resources: [
+              './src/style/index.scss'
+            ]
+          })
+          .end()
+      })
+      config.resolve.alias
+        .set('@', resolve('src'))
+        .set('assets', resolve('src/assets'))
+    },
+    configureWebpack: {
+      resolve: {
+        alias: {
+          '@': resolve('src')
+        }
+      }
+    }
+  } sass-loader node-sass
+  
+  Less
+  npm install -D less-loader less
+  
+  Stylus
+  npm install -D stylus-loader stylus
+  
+  ##### 如果你想自动化导入文件 (用于颜色、变量、mixin……)，你可以使用 style-resources-loader。
+  // vue.config.js
+  const path = require('path')
+  
+  module.exports = {
+    chainWebpack: config => {
+      const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+      types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
+    },
+  }
+  
+  function addStyleResource (rule) {
+    rule.use('style-resource')
+      .loader('style-resources-loader')
+      .options({
+        patterns: [
+          path.resolve(__dirname, './src/styles/imports.styl'),
+        ],
+      })
+  }
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

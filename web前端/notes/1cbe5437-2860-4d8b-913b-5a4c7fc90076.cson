@@ -1,0 +1,68 @@
+createdAt: "2019-07-10T15:53:56.295Z"
+updatedAt: "2019-07-10T16:09:44.881Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "css/html速写二 2019/7/10"
+tags: []
+content: '''
+  css/html速写二 2019/7/10
+  网址：[Cheat Sheet](https://docs.emmet.io/cheat-sheet/)
+  #### 简写属性和属性值
+  	比如要定义元素的宽度，只需输入w100，即可生成：
+  	width: 100px;
+  	
+  	w100foo 会生成：
+  	width:100foo;
+  	
+  	简写属性单位，属性值后面的字符是 p，那么将会生成：
+  	width:100%;
+  ###### Emmet 的默认设置 w 是 width 的缩写，后面紧跟的数字就是属性值。默认的属性值单位是 px ，你可以在值的后面紧跟字符生成单位，可以是任意字符。
+  下面是单位别名列表：
+  + p 表示%
+  + e 表示 em
+  + x 表示 ex
+  ####
+  	例如使用 m10-20 可以生成：
+  	margin: 10px 20px;
+  	
+  	生成负值，多加一条横杠即可。例如：m10–-20 可以生成：
+  	margin: 10px -20px;
+  ###### 需要注意的是，如果你对每个属性都指定了单位，那么不需要使用横杠分割。例如使用 m10e20e 可以生成：
+  	margin: 10em 20em;
+  ###### 如果使用了横杠分割，那么属性值就变成负值了。例如使用 m10e-20e 就生成：
+  	margin: 10em -20em;
+  ###### 如果你想一次生成多条语句，可以使用 “+” 连接两条语句，例如使用 h10p+m5e 可以生成：
+  	height: 10%;
+  	margin: 5em;
+  
+  ###### 颜色值也是可以快速生成的，例如 c#3 生成 color: #333;更复杂一点的，使用 bd5#0s 可以生成 border: 5px #000 solid;。
+  
+  	下面是颜色值生成规则：
+  	‘#1’ → #111111
+  	‘#e0’ → #e0e0e0
+  	‘#fc0’ → #ffcc00
+  	生成 !important 这条语句也当然很简单，只需要一个 “!” 就可以了。
+  ##### 模糊匹配
+  ###### 如果有些缩写你拿不准，Emmet 会根据你的输入内容匹配最接近的语法，比如输入 ov:h、ov-h、ovh 和 oh，生成的代码是相同的：
+  	overflow: hidden;
+  ##### 渐变背景
+  ###### 使用 lg() 指令即可快速生成，例如：使用 lg(left, #fff 50%, #000) 可以直接生成：
+  	background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(0.5, #fff), to(#000));
+  	background-image: -webkit-linear-gradient(left, #fff 50%, #000);
+  	background-image: -moz-linear-gradient(left, #fff 50%, #000);
+  	background-image: -o-linear-gradient(left, #fff 50%, #000);
+  	background-image: linear-gradient(left, #fff 50%, #000);
+  ### 快捷键
+  	Ctrl+, 展开缩写
+  	Ctrl+M  匹配对
+  	Ctrl+H 使用缩写包括
+  	Shift+Ctrl+M 合并行
+  	Ctrl+Shift+? 上一个编辑点
+  	Ctrl+Shift+? 下一个编辑点
+  	Ctrl+Shift+? 定位匹配对
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

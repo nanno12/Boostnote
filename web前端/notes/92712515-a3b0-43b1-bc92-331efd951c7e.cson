@@ -1,0 +1,40 @@
+createdAt: "2019-07-27T06:49:39.942Z"
+updatedAt: "2019-08-28T11:40:00.117Z"
+type: "MARKDOWN_NOTE"
+folder: "6b35ebf9856419e181f3"
+title: "js练习之--数组方法 2019/7/27"
+tags: [
+  "js练习之--数组方法"
+  "数组拆分"
+  "三元运算符"
+]
+content: '''
+  ## js练习之--数组方法 2019/7/27
+  ##### 数组拆分
+  ###### 数组的split()方法,可以接收两个参数，如果加入了第二个参数，那么第二个参数的数值就是你要保留的拆分出来的元素个数，这个元素和你的字符串顺序有关!
+  	var str1 = 'hello world how are you';
+  	console.log(str1.split(' ',2));
+  	/*
+  	Array(2)
+  	0: "hello"
+  	1: "world"
+  	length: 2
+  	__proto__: Array(0)
+  	*/
+  	
+  数组黏合
+  	根据特定的字符串，将数组元素黏合在给定字符串的两边，并返回一个长字符串！
+  数组的join()方法
+  var arr = [1,2,3,4,56];
+  
+  var str = arr.join('^');
+  console.log(str); //1^2^3^4^56
+  
+  #### 三元运算符 2019/8/28
+  	(条件) ? 表达式1 : 表达式2
+  	(条件) ? 表达式1 : 表达式2 ? 表达式3 : 表达式4;
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

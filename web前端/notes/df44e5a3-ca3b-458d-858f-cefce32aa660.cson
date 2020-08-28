@@ -1,0 +1,58 @@
+createdAt: "2019-06-23T09:00:38.265Z"
+updatedAt: "2019-07-10T15:20:10.247Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "父调子的方法"
+tags: [
+  "父调子方法"
+]
+content: '''
+  父调子的方法
+  用$ref调用 this.$refs.yeluosen.childMethod()
+  父组件
+  <template>
+    <div @click="parentMethod">
+      <children ref="yeluosen"></children>
+    </div>
+  </template>
+   
+  <script>
+    import children from 'children.vue'
+    export default {
+      data(){
+        return {
+        }
+      },
+      components: {      
+        children
+      },
+      methods:{
+        parentMethod() {     
+          this.$refs.yeluosen.childMethod(); 
+        }
+      }
+    }
+  </script>
+  子组件
+  <template>
+    <div>
+    </div>
+  </template>
+   
+  <script>
+    export default {
+      data(){
+        return {      
+        }
+      },
+      methods:{
+        childMethod() {
+          alert('My name is 叶落森')
+        }
+      }
+    }
+  </script>
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

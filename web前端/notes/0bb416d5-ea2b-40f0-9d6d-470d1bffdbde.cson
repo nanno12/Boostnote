@@ -1,0 +1,50 @@
+createdAt: "2019-07-11T15:04:01.872Z"
+updatedAt: "2019-07-11T15:26:36.481Z"
+type: "MARKDOWN_NOTE"
+folder: "6328cc90110e506a740e"
+title: "input回车"
+tags: [
+  "回车事件"
+]
+content: '''
+  ###### input回车
+  	<input @keyup.enter="submit">
+  ###### 按键事件
+   	<input type="text" @keydown="show($event)">
+  	show(ev){
+        console.log(ev.keyCode); // 得到的是数字编号     
+      },
+  ###### 在Vue中，已经为常用的按键设置了别名，这样我们就无需再去匹配keyCode，直接使用别名就能监听按键的事件。
+  
+  	<input @keyup.enter="function">
+  	
+  	.delete	delete（删除）/BackSpace（退格）
+  	.tab	Tab
+  	.enter	Enter（回车）
+  	.esc	Esc（退出）
+  	.space	Space（空格键）
+  	.left	Left（左箭头）
+  	.up	Up（上箭头）
+  	.right	Right（右箭头）
+  	.down	Down（下箭头）
+  	.ctrl	Ctrl
+  	.alt	Alt
+  	.shift	Shift
+  	.meta	(window系统下是window键，mac下是command键)
+  	
+  ###### 但是，如果是在自己封装的组件或者是使用一些第三方的UI库时，会发现并不起效果，这时就需要用到.native修饰符了，如：
+  	<el-input
+  		v-model="inputName"
+  		placeholder="搜索你的文件"
+  		@keyup.enter.native="searchFile(params)"
+  		>
+  	</el-input>
+  
+  ###### 如果遇到.native修饰符也无效的情况，可能就需要用到$listeners了，具体用法请参考Vue官方文档：[将原生事件绑定到组件 — Vue.js](https://cn.vuejs.org/v2/guide/components-custom-events.html#%E5%B0%86%E5%8E%9F%E7%94%9F%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%88%B0%E7%BB%84%E4%BB%B6)
+  ----
+  原文：https://blog.csdn.net/xiaxiangyun/article/details/80404768 
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

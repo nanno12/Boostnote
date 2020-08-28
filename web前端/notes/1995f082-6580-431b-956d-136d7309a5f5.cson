@@ -1,0 +1,72 @@
+createdAt: "2019-07-11T15:27:56.382Z"
+updatedAt: "2019-07-11T15:43:53.187Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vue注册组件的几种方式    2019/7/11"
+tags: [
+  "vue注册组件的几种方式"
+]
+content: '''
+  ##### vue注册组件的几种方式    2019/7/11
+  ###### 创建Vue的组件都有三个基本步骤：创建组件构造器(vue.extend())、注册组件(component())和使用组件。
+  #### 全局注册
+  ##### html
+  	<div id="example">
+  	   <my-component></my-component>
+  	</div>
+  	
+  ###### // js  注册
+  	Vue.component('my-component', {
+  	   template: '<div>A custom component!</div>'
+  	})
+  	var vm = new Vue({
+  	  el: '#example',
+  	  data: {
+  
+  	  } 
+  	})
+  	
+  ###### 渲染为
+  	<div id="example">
+  	   <div>A custom component!</div>
+  	</div>
+  ###### 或者另外一种注册方式，通过 全局API：Vue.extend()
+  
+  	// 注册
+  	var MyComponent = Vue.extend({
+  	  template: '<div>A custom component!</div>'
+  	});
+  
+  	// 注册
+  	Vue.component('my-component', MyComponent);
+  	var vm = new Vue({
+  	  el: '#example',
+  	  data: {
+  
+  	  }
+  	})
+  #### 局部注册
+  ###### 你不必把每个组件都注册到全局。你可以通过某个 Vue 实例/组件的实例选项 components 注册仅在其作用域中可用的组件：
+  	var Child = {
+  	    template: '<div>A custom component!</div>'
+  	}
+  
+  	new Vue({
+  	// ...
+  	components: {
+  	    // <my-component> 将只在父组件模板中可用
+  	    'my-component': Child
+  	}
+  	})
+  #### Prop
+  ###### 在 Vue 中，父子组件的关系可以总结为 prop 向下传递，事件向上传递。父组件通过 prop 给子组件下发数据，子组件通过事件给父组件发送消息。
+  
+  
+  #### 
+  ####
+  #### 
+  #### 
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

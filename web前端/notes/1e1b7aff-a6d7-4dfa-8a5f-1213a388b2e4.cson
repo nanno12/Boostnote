@@ -1,0 +1,75 @@
+createdAt: "2019-08-27T07:28:16.573Z"
+updatedAt: "2020-04-03T07:23:04.419Z"
+type: "SNIPPET_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vue 自定义指令 代码"
+tags: [
+  "自定义指令_代码"
+  "vue_自定义指令"
+]
+description: "vue 自定义指令 代码  "
+snippets: [
+  {
+    linesHighlighted: [
+      32
+      23
+      31
+    ]
+    name: ""
+    mode: "Vue.js Component"
+    content: '''
+      <template>
+        <div style="height:2000px">
+          <div v-demo:foo.a.b="message"></div>
+          <div>
+            <h3>Scroll down inside this section ↓</h3>
+            <p v-pin:[direction]="200">Stick me 200px from the top of the page</p>
+          </div>
+        </div>
+      </template>
+      
+      <script>
+      export default {
+        data(){
+          return{
+             message: 'hello!',
+             direction: 'left'
+          }
+        },
+        created(){
+        },
+        methods:{
+        },
+        directives: {        
+          pin: {             
+            bind: function(el,binding,vnode) {   
+              el.style.position = 'fixed'
+              var s = (binding.arg == 'left' ? 'left' : 'top')
+              console.log(binding,s);
+              el.style[s] = binding.value + 'px'
+      							}
+      					},
+          demo: {
+            bind: function (el, binding, vnode) {
+      							var s = JSON.stringify
+      							el.innerHTML =
+      									'name: '       + s(binding.name) + '<br>' + 自定义指令名字---demo
+      									'value: '      + s(binding.value) + '<br>' + 指令的绑定值---hello
+      									'expression: ' + s(binding.expression) + '<br>' + 字符串形式的指令表达式---message
+      									'argument: '   + s(binding.arg) + '<br>' + 
+      									'modifiers: '  + s(binding.modifiers) + '<br>' +
+      									'vnode keys: ' + Object.keys(vnode).join(', ')
+            }
+          }
+        }
+      }
+      </script>
+      <style lang='scss' scoped>
+      
+      </style>>
+      
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

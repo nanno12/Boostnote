@@ -1,0 +1,43 @@
+createdAt: "2019-07-27T06:53:31.281Z"
+updatedAt: "2019-07-27T06:58:40.987Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "三种不定高的div垂直居中方式"
+tags: [
+  "不定高div垂直居中"
+]
+content: '''
+  #### 三种不定高的div垂直居中方式
+  1.父元素：{
+  position:relative;
+  }
+  子元素：{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  }
+  2.父元素{
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
+  }
+  注：a) display:table-cell;是将元素转换成表格单元格形式
+  b) 如果子元素为块元素，将子元素转换为 inline-block类型，再使用该方案来实现
+  3.父元素{
+  position:relative;
+  }
+  子元素{
+  position:absolute;
+  left:50%;
+  top:50%
+  transform:translateX(-50%) translateY(-50%);
+  }
+  ![02998321.png](:storage/8562d2a7-42a0-4c63-abb4-05420ec26a01/02998321.png)
+  ![5185e244.png](:storage/8562d2a7-42a0-4c63-abb4-05420ec26a01/5185e244.png)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,19 @@
+createdAt: "2019-08-05T11:21:02.443Z"
+updatedAt: "2019-08-05T11:24:06.368Z"
+type: "MARKDOWN_NOTE"
+folder: "d12b700090b8756bb26f"
+title: "工作日常问题 2019/8/5"
+tags: []
+content: '''
+  工作日常问题 2019/8/5
+  #### element指定的修改 
+  	列如show-close 前边必须加 ： 设置变量给赋值，不然不起效果
+  	<el-dialog
+        :show-close= "false"
+        :visible.sync="dialogVisible"
+        width="30%">
+  	</el-dialog>
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

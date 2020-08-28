@@ -1,0 +1,77 @@
+createdAt: "2019-06-23T07:50:07.878Z"
+updatedAt: "2019-07-10T15:20:08.405Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "子调父的方法"
+tags: [
+  "组件之间传值"
+  "子组件调用父组件的某个方法"
+]
+content: '''
+  子调父的方法
+  1.直接在子组件中通过this.$parent.event来调用父组件的方法
+  2.在子组件里用$emit向父组件触发一个事件，父组件监听这个事件就行了。
+  3.父组件把方法传入子组件中，在子组件里直接调用这个方法
+  父组件
+  <template>
+    <div>
+      1.<child></child>
+      2.<child @fatherMethod="fatherMethod"></child>
+      3.<child :fatherMethod="fatherMethod"></child>
+    </div>
+  </template>
+  <script>
+    import child from '~/components/dam/child';
+    export default {
+      components: {
+        child
+      },
+      methods: {
+        1.fatherMethod() {
+          console.log('测试');
+        }
+  			2.fatherMethod() {
+          console.log('测试');
+        }
+  			3.fatherMethod() {
+          console.log('测试');
+        }
+      }
+    };
+  </script>
+  子组件
+  <template>
+    <div>
+      1.<button @click="childMethod()">点击</button>
+  		2.<button @click="childMethod()">点击</button>
+  		3.<button @click="childMethod()">点击</button>
+    </div>
+  </template>
+  <script>
+    export default {
+  		3.props: {
+        fatherMethod: {
+          type: Function,
+          default: null
+        }
+      methods: {
+        1.childMethod() {
+          this.$parent.fatherMethod();
+        }
+  			2.childMethod() {
+          this.$emit('fatherMethod');
+        }
+  			3.childMethod() {
+          if (this.fatherMethod) {
+            this.fatherMethod();
+          }
+      }
+    };
+  </script>
+  
+'''
+linesHighlighted: [
+  32
+]
+isStarred: false
+isTrashed: false

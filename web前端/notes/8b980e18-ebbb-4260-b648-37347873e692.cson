@@ -1,0 +1,75 @@
+createdAt: "2019-08-29T03:31:30.545Z"
+updatedAt: "2019-09-01T07:24:51.166Z"
+type: "SNIPPET_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vuex实例 vuex代码 ,如何使用vuex和实现导航守卫"
+tags: [
+  "vuex代码"
+  "vue导航守卫/_路由守卫"
+]
+description: "vuex实例 vuex代码 ,如何使用vuex和实现导航守卫"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "vuex实例.vue"
+    mode: "Vue.js Component"
+    content: '''
+      // 新建store文件夹 2019/8/29
+      // index.js 用来集合
+      <script>
+      	import Vue from 'vue';
+      	import Vuex from 'vuex';
+      	import state from './state'
+      	import mutations from './mutations'
+      		Vue.use(Vuex);
+      
+      		const store = new Vuex.Store( {
+      				state,
+      				mutations
+      		})
+      		export default store  // 
+      
+      // stste.js 数据仓库
+      	export default {
+      			userInfo:''
+      	}
+      // mutations.js 修改数据
+      	export default {
+      			login (state,v) {
+      					state.userInfo = v
+      			}
+      	}
+      // mian.js文件
+      	引入：import store from './store'
+      	在 new Vue  挂载
+      	store,// 2. 挂载vue实例中
+      	router.beforeEach
+    '''
+  }
+  {
+    linesHighlighted: []
+    name: "vue导航守卫/ 路由守卫.html"
+    mode: "HTML"
+    content: '''
+      <script>
+      	// vue导航守卫 2019/9/1
+      router.beforeEach((to, from,next)=>{
+      // to,即将要进入的目标 路由对象
+      // from:当前导航正要离开的路由
+      // next: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。
+        console.log(store.state,'nextnext');
+        if (store.state.userInfo || to.path === '/login') {
+          console.log('index');
+          next()
+        } else {
+          console.log('login');
+          next({
+            path:'/login'
+          })
+        }
+      })
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

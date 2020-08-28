@@ -1,0 +1,44 @@
+createdAt: "2019-07-05T10:08:16.493Z"
+updatedAt: "2019-07-25T14:55:40.646Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vue v-for如何实现这样的tab切换"
+tags: [
+  "vue_v-for实现tab切换"
+]
+content: '''
+  vue v-for如何实现这样的tab切换
+  <div id="app">
+          <ul>
+              <li 
+              v-for="(item,index) in tabs" 
+              :class="{active:index == num}"
+               @click="tab(index)">{{item}}</li>
+          </ul>
+          <div class="tabCon">
+              <div 
+              v-for='(itemCon,index) in tabContents' 
+              v-show=" index == num">{{itemCon}}</div>
+          </div>
+      </div>
+  <!--这里是js代码-->
+  <script type="text/javascript">
+  var vm = new Vue({
+      el: '#app',
+      data: {
+          tabs: ["冰箱", "酒柜","菜多多"],
+          tabContents: ["馨厨S系列","内容二","内容三"],
+          num: 1
+      },
+      methods: {
+          tab(index) {
+              this.num = index;
+          }
+      }
+  });
+  </script>
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

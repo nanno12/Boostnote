@@ -1,0 +1,22 @@
+createdAt: "2019-07-10T13:25:56.212Z"
+updatedAt: "2019-07-10T13:27:15.452Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "css input框 2019/7/10"
+tags: []
+content: '''
+  css input框 2019/7/10
+  ###### :enabled	
+  	input:enabled	选择每个启用的 <input> 元素。	3
+  ###### :disabled	
+  	input:disabled	选择每个禁用的 <input> 元素	3
+  ###### :checked	
+  	input:checked	选择每个被选中的 <input> 元素。	3
+  ###### :not(selector)	
+  	:not(p)	选择非 <p> 元素的每个元素。	3
+  ###### ::selection	
+  	::selection	选择被用户选取的元素部分。	3
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

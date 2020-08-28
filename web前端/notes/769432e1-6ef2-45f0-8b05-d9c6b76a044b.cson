@@ -1,0 +1,25 @@
+createdAt: "2019-07-05T08:57:24.227Z"
+updatedAt: "2019-07-05T08:58:22.899Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "v-for绑定src的数据如下："
+tags: [
+  "vue项目中动态绑定src不显示图片解决方法"
+]
+content: '''
+  v-for绑定src的数据如下：
+  data() {
+      return {
+          img_src:"../../assets/images/mirror-service.png"
+      }
+  }
+  渲染之后，发现图片不显示，上网查找之后发现是应为图片链接是需要通过 require包裹的
+  data() {
+      return {
+          img_src:require("../../assets/images/mirror-service.png)"
+      }
+  } 
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

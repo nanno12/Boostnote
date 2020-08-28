@@ -1,0 +1,93 @@
+createdAt: "2019-08-01T03:14:54.773Z"
+updatedAt: "2019-08-29T07:54:16.254Z"
+type: "SNIPPET_NOTE"
+folder: "6b35ebf9856419e181f3"
+title: "正则表达式"
+tags: [
+  "正则表达式"
+]
+description: "正则表达式"
+snippets: [
+  {
+    linesHighlighted: [
+      25
+    ]
+    name: "正则表达式.html"
+    mode: "HTML"
+    content: '''
+      <html> 2019/8/29
+      <!--	1.只能输入数字和英文的： -->
+      		<input οnkeyup="value=value.replace(/[\\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\\d]/g,''))"> 
+      2.只能输入数字的： 
+      <!--	2.只能输入数字的：： -->
+      <input οnkeyup="value=value.replace(/[^\\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\\d]/g,''))"> 
+      <!-- 3.只能输入全角的： -->
+      <input οnkeyup="value=value.replace(/[^\\uFF00-\\uFFFF]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\\uFF00-\\uFFFF]/g,''))"> 
+      <!-- 4.只能输入汉字的： -->
+      <input οnkeyup="value=value.replace(/[^\\u4E00-\\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\\u4E00-\\u9FA5]/g,''))"> 
+      <script>
+      	 // #### 只能在0-1之间 2019/7/31
+      	buzhidao (val) {
+      	console.log(val)
+      	if (/^(0.\\d+|0|1)$/.test(val)) {
+      		console.log('ok')
+      	 } else {
+      	  this.$message({
+      	    message: '只能输入0-1之间',
+      	    iconClass: 'el-icon-close',
+      	    customClass: 'customClassWarning'
+      	  })
+      	 }
+      	},
+      //	#### 价格正则表达式 2019/8/1
+      	unitPriceVaule (val) {
+      		if (!/(^[1-9]\\d*(\\.\\d{1,2})?$)/.test(val) && !/(^0(\\.\\d{1,2})?$)/.test(val)) {
+      			this.$message({
+      				message: '价格必须是数字',
+      				iconClass: 'el-icon-close',
+      				customClass: 'customClassWarning'
+      			})
+      		}
+      		// 输入数字和.，否则弹出输入有误 
+      		if (!(/^[\\d]+\\.?\\d*$/.test(val))) {
+              this.$message({
+                message: '价格必须是数字',
+                iconClass: 'el-icon-close',
+                customClass: 'customClassWarning'
+              })
+              console.log(val)
+            }
+      	},
+      </script>
+      
+    '''
+  }
+  {
+    linesHighlighted: []
+    name: "正则.vue"
+    mode: "Vue.js Component"
+    content: '''
+      <template>
+      <div>
+      	<el-pagination
+            background
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="defaultPage.currentPage"
+            layout="total, sizes, prev, pager, next, jumper"
+            :page-sizes="defaultPage.pageSizes"
+            :page-size="defaultPage.pageSize"
+            :total="totalNumber">
+          </el-pagination>
+      	</div>
+      </template>
+      <script>
+      	export default {
+        data () {
+          return {}}}
+      </script>
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

@@ -1,0 +1,65 @@
+createdAt: "2019-08-27T01:06:28.395Z"
+updatedAt: "2019-08-27T01:38:59.204Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "CSS 边框 轮廓 阴影2019/8/27"
+tags: [
+  "CSS_边框_轮廓_阴影"
+]
+content: '''
+  ## CSS 边框 轮廓 阴影2019/8/27
+  #### 样式（style）
+  	值	描述
+  	none    定义无边框。
+  	hidden	与 none 相同。
+  	dotted	定义点状边框。
+  	dashed	定义虚线。
+  	solid	定义实线。
+  	double	定义双线。双线的宽度等于 border-width 的值。
+  	groove	定义 3D 凹槽边框。
+  	ridge	定义 3D 垄状边框。
+  	inset	定义 3D inset 边框。
+  	outset	定义 3D outset 边框。
+  	inherit	规定应该从父元素继承边框样式。
+  ![56498130.png](:storage/b972e1ad-4fec-43e9-b387-188f6ea3611f/56498130.png)
+  #### 阴影（box-shadow）
+  	语法：
+  	box-shadow: h-shadow v-shadow blur spread color inset;
+  	box-shadow: 10px 10px 5px #888888;
+  #### 
+  	值	描述
+  	h-shadow	必需。水平阴影的位置。允许负值。
+  	v-shadow	必需。垂直阴影的位置。允许负值。
+  	blur	可选。模糊距离。
+  	spread	可选。阴影扩散的尺寸。
+  	color	可选。阴影的颜色。
+  	inset	可选。将外部阴影 (默认为外部阴影) 改为内部阴影。
+  ###### 水平和垂直阴影位置是必选项，其值可以为负值。
+  ###### box-shadow 向框添加一个或多个阴影。该属性是由逗号分隔的阴影列表，每个阴影由 2-4 个长度值、可选的颜色值以及可选的 inset 关键词来规定。省略长度的值是 0。
+  #### 圆角 （radius）
+  ###### 圆角相对比较简单，只有一个简写属性（border-radius）和四个具体方位属性，对于圆角来说，四个方位不再是上下左右了。属性值同样遵循 值复制 规则。
+  	左上角（border-top-left-radius），
+  	右上角（border-top-right-radius），
+  	右下角（border-bottom-right-radius），
+  	左下角（border-bottom-left-radius）。
+  	
+  	border-radius: 15px; /*等价于 15px 15px 15px 15px*/
+  	border-radius: 10% 10px; /*等价于 10% 10px 10% 10px*/
+  
+  ###### 由于每个角都涉及两个方位（如：左上，关联 top 和 left），所以每个角可以设置两个值分别对应角上的两个方位，两个值使用 / 分隔，前面的表示上下的值，后面的表示左右的值。如果两个值相同，只写一个即可。
+  	border-top-left-radius: 15px/15px; /*等价于 15px*/
+  #### 轮廓 （outline）
+  ###### outline 轮廓是绘制于元素周围的线，位于边框边缘的外围，可起到突出元素的作用。
+  ###### 注释：轮廓线不会占据空间。
+  ###### 轮廓的使用同边框，但没有边框那么复杂。轮廓只有：outline（简写属性，集中样式，尺寸，颜色的设置）,outline-style,outline-width,outline-color,4个属性可选，没有像边框似的对四个方位的具体设置相关的属性。
+  ![7dbf890a.png](:storage/b972e1ad-4fec-43e9-b387-188f6ea3611f/7dbf890a.png)
+  
+  #### 边框（border）
+  ![d2394279.png](:storage/b972e1ad-4fec-43e9-b387-188f6ea3611f/830ab5d0.png)
+  
+  #### 颜色（color）
+  	border-color: blue rgb(25%,35%,45%) #909090 red;
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

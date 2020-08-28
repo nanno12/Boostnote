@@ -1,0 +1,22 @@
+createdAt: "2019-06-24T11:58:30.179Z"
+updatedAt: "2019-06-26T11:47:28.326Z"
+type: "MARKDOWN_NOTE"
+folder: "6328cc90110e506a740e"
+title: "新建项目公共部分封装"
+tags: [
+  "新建项目需封装的组件"
+  "封装组件"
+  "封装共用的数据"
+  "封装变量"
+]
+content: '''
+  新建项目公共部分封装
+  1.ui库依赖
+  2.scss，sass依赖
+  3.公共组件(style样式，.js.vue可复用组件)
+  4.分模块组件
+  5.设置路由(router)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

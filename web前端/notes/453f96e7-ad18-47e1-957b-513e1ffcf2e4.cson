@@ -1,0 +1,45 @@
+createdAt: "2019-06-30T10:57:51.677Z"
+updatedAt: "2019-08-13T07:30:12.279Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "1.安装：yarn add vuex --save"
+tags: [
+  "vuex使用"
+  "vuex知识点"
+]
+content: '''
+  1.安装：yarn add vuex --save
+  2.新建一个store文件夹->新建index.js,文件中引入我们的vue和vuex。
+  	import Vue from 'vue'
+  	import Vuex from 'vuex'
+  	Vue.use(Vuex)
+  3.main.js文件中在实例化 Vue对象时加入 store 对象，这可以把store的实例注入所有的子组件中
+  	import store from './store'
+  	new Vue({
+  		router,
+  	})
+  
+  	
+  ### mapStatestate (对象赋值给内部对象，)
+  	也就是把stroe中的值，赋值给我们模板里data中的值，
+  	可以通过mapState的对象来赋值，首先要用import引入mapState，
+  	然后在computed计算属性里写如上代码，使用ES6的箭头函数来给count赋值。mapMutations
+  ### mutations (同步修改状态)
+  	在模板test.vue里用import 引入我们的mapMutations,
+  	在<\\script>标签里添加methods属性，并加入mapMutations,引入mutations中的方法，
+  	就可以在button的click事件直接使用了。mapActions
+  ### actions (异步修改状态)
+  	和mapMutations使用方式一样，在模板test.vue里用import 引入我们的mapActions,
+  	在<\\script>标签里添加methods属性，并加入mapActions,引入actions中的方法，
+  	就可以在button的click事件直接使用了。
+  
+  state (类似存储全局变量的数据)
+  getters (提供用来获取state数据的方法)
+  actions (提供跟后台接口打交道的方法，并调用mutations提供的方法)
+  mutations (labRngIndexItemList)
+'''
+linesHighlighted: [
+  12
+]
+isStarred: false
+isTrashed: false

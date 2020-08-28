@@ -1,0 +1,177 @@
+createdAt: "2019-07-25T13:51:41.333Z"
+updatedAt: "2019-07-26T02:44:06.746Z"
+type: "SNIPPET_NOTE"
+folder: "827fc4f97be80918630b"
+title: "scc下拉框代码"
+tags: [
+  "css_下拉框"
+]
+description: '''
+  scc下拉框代码
+  
+'''
+snippets: [
+  {
+    linesHighlighted: [
+      8
+      0
+    ]
+    name: ""
+    mode: "Vue.js Component"
+    content: '''
+      <div class="drop-box">
+          <p class="txt">时间最近</p>
+          <ul class="menu">
+              <li sort="0" style="display: none;">时间最近</li>
+              <li sort="1">评论最多</li>
+              <li sort="2">被赞最多</li>
+          </ul>
+      </div>
+      <style>
+      * {
+      			margin: 0;
+      			padding: 0;
+      	}
+      
+      	ul {
+      			list-style: none;
+      	}
+      
+      	.drop-box {
+      			box-sizing: border-box;
+      			width: 150px;
+      			font-size: 14px;
+      			text-align: center;
+      			border-radius: 10px;
+      			box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.175);
+      			overflow: hidden;
+      			margin-bottom: 5px;
+      	}
+      
+      	.drop-box p {
+      			height: 24px;
+      			padding-top: 5px;
+      			position: relative;
+      			z-index: 10;
+      			margin: 0px;
+      	}
+      
+      	.drop-box p:after {     /*三角箭头*/
+      			position: absolute;
+      			top: 10px;
+      			right: 10px;
+      			width: 0px;
+      			height: 0px;
+      			content: '';
+      			border: 6px solid transparent;
+      			border-top-color: #E4E4E3;
+      	}
+      
+      	.drop-box .menu {
+      			display: none;
+      			background-color: #fff;
+      	}
+      
+      	.drop-box .menu li {
+      			height: 35px;
+      			line-height: 35px;
+      	}
+      
+      	.drop-box .menu li:hover {
+      			background-color: #fee5ca;
+      			color: #fda653;
+      	}
+      
+      	.drop-box .menu .dp-active {
+      			display: none;
+      	}
+      
+      	.drop-box:hover {
+      			cursor: pointer;
+      	}
+      
+      	.drop-box:hover .menu {
+      			display: block;
+      	}
+      
+      	.drop-box:hover p:after {
+      			top: 5px;
+      			border: 6px solid transparent;
+      			border-bottom-color: #E4E4E3;
+      	}
+      </style>
+    '''
+  }
+  {
+    linesHighlighted: []
+    name: "selse.html"
+    mode: "HTML"
+    content: '''
+      <h2>Cars Select</h2> 2019/7/26
+      	<div class="select">
+      		<select name="cars">
+      			<option value="volvo">Volvo</option>
+      			<option value="saab">Saab</option>
+      			<option value="opel" selected>Opel</option>
+      			<option value="audi">Audi</option>
+      		</select>
+      	</div>
+      如果希望设置默认值，在option 的标签里加入即在展示时，为默认值。
+      <style>
+      	body {
+      		font-size: 20px;
+      		color: #090;
+      		background-color: #eee;
+      		text-align: center;
+      	}
+      	.select {
+      		display: inline-block;
+      		width: 300px;
+      		position: relative;
+      		vertical-align: middle;
+      		padding: 0;
+      		overflow: hidden;
+      		background-color: #fff;
+      		color: #555;
+      		border: 1px solid #aaa;
+      		text-shadow: none;
+      		border-radius: 4px;	
+      		transition: box-shadow 0.25s ease;
+      		z-index: 2;
+      	}
+       
+      	.select:hover {
+      		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+      	}
+       
+      	.select:before {
+      		content: "";
+      		position: absolute;
+      		width: 0;
+      		height: 0;
+      		border: 10px solid transparent;
+      		border-top-color: #ccc;
+      		top: 14px;
+      		right: 10px;
+      		cursor: pointer;
+      		z-index: -2;
+      	}
+      	.select select {
+      		cursor: pointer;
+      		padding: 10px;
+      		width: 100%;
+      		border: none;
+      		background: transparent;
+      		background-image: none;
+      		-webkit-appearance: none;
+      		-moz-appearance: none;
+      	}
+       
+      	.select select:focus {
+      		outline: none;}
+      </style>
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

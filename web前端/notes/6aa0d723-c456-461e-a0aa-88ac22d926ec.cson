@@ -1,0 +1,163 @@
+createdAt: "2019-08-29T13:00:12.084Z"
+updatedAt: "2019-08-29T13:12:59.015Z"
+type: "SNIPPET_NOTE"
+folder: "6b35ebf9856419e181f3"
+title: "浅深拷贝的实现方式"
+tags: [
+  "浅拷贝的实现方式"
+  "浅拷贝的实现代码"
+]
+description: "浅深拷贝的实现方式"
+snippets: [
+  {
+    linesHighlighted: [
+      55
+    ]
+    name: "深拷贝的实现方式"
+    mode: "Vue.js Component"
+    content: '''
+      <script>
+      // 1. 对象只有一层的话可以使用上面的：Object.assign()函数
+      		var obj1 = { a: 10, b: 20, c: 30 };
+      		var obj2 = Object.assign({}, obj1);
+      		obj2.b = 100;
+      		console.log(obj1); // { a: 10, b: 20, c: 30 } <-- 沒被改到
+      		console.log(obj2); // { a: 10, b: 100, c: 30 }
+      	
+      // 2. 转成 JSON 再转回来
+      		var obj1 = { body: { a: 10 } };
+      		var obj2 = JSON.parse(JSON.stringify(obj1));
+      		obj2.body.a = 20;
+      		console.log(obj1); // { body: { a: 10 } } <-- 沒被改到
+      		console.log(obj2); // { body: { a: 20 } }
+      		console.log(obj1 === obj2); // false
+      		console.log(obj1.body === obj2.body); // false
+      	// 用JSON.stringify把对象转成字符串，再用JSON.parse把字符串转成新的对象。
+      	// 可以封装如下函数
+      		var cloneObj = function(obj){
+      						var str, newobj = obj.constructor === Array ? [] : {};
+      						if(typeof obj !== 'object'){
+      										return;
+      						} else if(window.JSON){
+      										str = JSON.stringify(obj), //系列化对象
+      										newobj = JSON.parse(str); //还原
+      						} else {
+      										for(var i in obj){
+      														newobj[i] = typeof obj[i] === 'object' ? 
+      														cloneObj(obj[i]) : obj[i]; 
+      										}
+      						}
+      						return newobj;
+      		};
+      // 3. 递归拷贝
+      	function deepClone(initalObj, finalObj) {    
+      			var obj = finalObj || {};    
+      			for (var i in initalObj) {        
+      					var prop = initalObj[i];        // 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况
+      					if(prop === obj) {            
+      							continue;
+      					}        
+      					if (typeof prop === 'object') {
+      							obj[i] = (prop.constructor === Array) ? [] : {};            
+      							arguments.callee(prop, obj[i]);
+      					} else {
+      							obj[i] = prop;
+      					}
+      			}    
+      			return obj;
+      		}
+      		var str = {};
+      		var obj = { a: {a: "hello", b: 21} };
+      		deepClone(obj, str);
+      		console.log(str.a);
+      // 4. 使用Object.create()方法  ---- 直接使用var newObj = Object.create(oldObj)，可以达到深拷贝的效果。
+      		function deepClone(initalObj, finalObj) {    
+      				var obj = finalObj || {};    
+      				for (var i in initalObj) {        
+      						var prop = initalObj[i];        // 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况
+      						if(prop === obj) {            
+      								continue;
+      						}        
+      						if (typeof prop === 'object') {
+      								obj[i] = (prop.constructor === Array) ? [] : Object.create(prop);
+      						} else {
+      								obj[i] = prop;
+      						}
+      				}    
+      				return obj;
+      		}
+      // 5.jquery  ----- jquery 有提供一个$.extend可以用来做 Deep Copy。
+      		var $ = require('jquery');
+      		var obj1 = {
+      						a: 1,
+      						b: { f: { g: 1 } },
+      						c: [1, 2, 3]
+      		};
+      		var obj2 = $.extend(true, {}, obj1);
+      		console.log(obj1.b.f === obj2.b.f); // false
+      // 6. lodash    ---  另外一个很热门的函数库lodash，也有提供_.cloneDeep用来做 Deep Copy。这个性能还不错，使用起来也很简单。
+      		var _ = require('lodash');
+      		var obj1 = {
+      						a: 1,
+      						b: { f: { g: 1 } },
+      						c: [1, 2, 3]
+      		};
+      		var obj2 = _.cloneDeep(obj1);
+      		console.log(obj1.b.f === obj2.b.f);  // false
+      
+      
+    '''
+  }
+  {
+    name: "浅拷贝的实现方式"
+    mode: "Vue.js Component"
+    content: '''
+      <script>
+      	// 1、可以通过简单的赋值实现
+      	 function simpleClone(initalObj) {    
+            var obj = {};    
+            for ( var i in initalObj) {
+              obj[i] = initalObj[i];
+            }    
+            return obj;
+          }
+          var obj = {
+            a: "hello",
+            b:{
+                a: "world",
+                b: 21
+              },
+            c:["Bob", "Tom", "Jenny"],
+            d:function() {
+                alert("hello world");
+              }
+          }
+          var cloneObj = simpleClone(obj); 
+          console.log(cloneObj.b,cloneObj.c,cloneObj.d); 
+          cloneObj.b.a = "changed";
+          cloneObj.c = [1, 2, 3];
+          cloneObj.d = function() { alert("changed"); };
+          console.log(cloneObj.b,cloneObj.c,cloneObj.d); 
+      // 2、Object.assign()实现
+       // Object.assign() 方法可以把任意多个的源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象。但是 Object.assign() 进行的是浅拷贝，拷贝的是对象的属性的引用，而不是对象本身。
+      	var obj = { a: {a: "hello", b: 21} };
+      	var initalObj = Object.assign({}, obj);
+      	initalObj.a.a = "changed";
+      	console.log(obj.a.a); //  "changed"
+      	// 注意：当object只有一层的时候，是深拷贝，例如如下：
+      	var obj1 = { a: 10, b: 20, c: 30 };
+      	var obj2 = Object.assign({}, obj1);
+      	obj2.b = 100;
+      	console.log(obj1);
+      	// { a: 10, b: 20, c: 30 } <-- 沒被改到
+      	console.log(obj2);
+      	// { a: 10, b: 100, c: 30 }
+      
+    '''
+    linesHighlighted: [
+      21
+    ]
+  }
+]
+isStarred: false
+isTrashed: false

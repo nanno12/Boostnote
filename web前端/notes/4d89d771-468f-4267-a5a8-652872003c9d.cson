@@ -1,0 +1,56 @@
+createdAt: "2019-07-10T15:22:06.577Z"
+updatedAt: "2019-07-11T12:29:50.051Z"
+type: "SNIPPET_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vue-cli3 配置全局less 、sass 变量"
+tags: [
+  "vue-cli3_配置全局less_、sass_变量"
+]
+description: "vue-cli3 配置全局less 、sass 变量"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "vue-cli3 配置全局.html"
+    mode: "HTML"
+    content: '''
+      #### vue-cli3 配置全局less 、sass 变量
+      	配置全局less，sass变量
+      	yarn add sass-resources-loader --save-dev
+      	第二步配置vue.config.js
+      	'use strict'
+      	const path = require('path')
+      	function resolve (dir) {
+        	return path.join(__dirname, dir)
+      		}
+      		module.exports = {
+      			baseUrl: '/Cindy/',
+      			chainWebpack: (config) => {
+      				const oneOfsMap = 					config.module.rule('scss').oneOfs.store
+      				oneOfsMap.forEach((item) => {
+      					item
+      						.use('sass-resources-loader')
+      						.loader('sass-resources-loader')
+      						.options({
+      							resources: [
+      								'./src/style/index.scss'
+      							]
+      						})
+      						.end()
+      				})
+      				config.resolve.alias
+      					.set('@', resolve('src'))
+      					.set('assets', resolve('src/assets'))
+      			},
+      			configureWebpack: {
+      				resolve: {
+      					alias: {
+      						'@': resolve('src')
+      					}
+      				}
+      			}
+      		}
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

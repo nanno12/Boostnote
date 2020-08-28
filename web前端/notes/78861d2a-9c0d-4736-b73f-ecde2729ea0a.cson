@@ -1,0 +1,69 @@
+createdAt: "2019-07-11T12:31:41.504Z"
+updatedAt: "2019-07-11T12:50:50.227Z"
+type: "MARKDOWN_NOTE"
+folder: "6328cc90110e506a740e"
+title: "js判断数组对象是否存在 2019/7/11"
+tags: [
+  "js判断数组中是否存在某值"
+  "js判断数组中对象是否存在某个值"
+]
+content: '''
+  #### js判断数组对象是否存在 2019/7/11
+  ##### 1.javascript的indexOf()方法 
+  	var arr_data = [1,2,3]; 
+  	arr_data.indexOf(1); //如果存在返回值的下标，不存在返回-1
+  ##### 2.jquery的$.inArray()方法 
+  	$.inArray(1, arr_data); //如果存在返回值的下标，不存在返回-1
+  ##### 3.arr.find()
+  	arr.find(function(value) { 
+     	if(value === 要查找的值) { 
+         //则包含该元素    
+  	}})
+  ###### 数组实例的find()用于找出第一个符合条件的数组元素。它的参数是一个回调函数，所有的数组元素依次遍历该回调函数，直到找出第一个返回值为true的元素，然后返回该元素，否则返回undefined。
+  
+  ###### 注意：find()对于空数组，函数是不会执行的。find()并没有改变数组的原始值
+  ##### 4.arr.findIndex()返回第一个符合条件的数组元素的位置，如果所有的元素都不符合条件，则返回-1.
+  	[NaN].indexOf(NaN) // -1
+  	[NaN].findIndex(y => Object.is(NaN, y))// 0
+  
+  ###### 注意：find(),findIndex()弥补了index的不足：（即判断NAN）
+  ##### 5.for循环和if判断
+  	var arr = [1, 5, 10, 15];
+  	//传统for
+  	for(let i=0; i<arr.length; i++) {
+  	  if(arr[i] === 查找值) {
+  		//则包含该元素
+  	 }
+  	}
+  	// for...of
+  	for(v of arr) {
+  	  if(v === 查找值) {
+  		  //则包含该元素
+  	  }
+  	}
+  	//forEach
+  	arr.forEach(v=>{
+  	  if(v === 查找值) {
+  		  //则包含该元素
+  	  }
+  	})
+  ### js判断数组中对象是否存在某个值	
+  	var arr = [{
+  	  name: "回锅肉",
+  	  value: "0"
+  	  }, {
+  	   name: "小炒肉",
+  	   value: "1"
+  	}]
+  	var result = arr.some(function(item) {
+  	  if (item.name == "小炒肉") {
+  		  return true;
+  	  }
+  	})
+  	console.log(result);
+  	//result 为true时表示数组内已存在 false表示不存在
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

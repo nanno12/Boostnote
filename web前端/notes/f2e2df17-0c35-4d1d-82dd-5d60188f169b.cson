@@ -1,0 +1,99 @@
+createdAt: "2019-06-23T10:35:15.713Z"
+updatedAt: "2019-06-23T10:39:19.011Z"
+type: "SNIPPET_NOTE"
+folder: "827fc4f97be80918630b"
+title: "vue使用v-for实现hover点击效果"
+tags: []
+description: "vue使用v-for实现hover点击效果"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "vue使用v-for实现hover点击效果.html"
+    mode: "HTML"
+    content: '''
+      2019/6/23 vue使用v-for实现hover点击效果
+      <template>
+        <ul class="item">
+          <li v-for="(item, index) in itemArr" :key="index"
+            :class="{'clickBg':index==clickIndex,'hoverBg':index==hoverIndex}"
+            @click="clickIndex = index"
+            @mouseover="hoverIndex = index"
+            @mouseout="hoverIndex = -1">
+            {{item}}
+          </li>
+        </ul>
+      </template>
+       
+      <script>
+       export default {
+         data: function(){
+           return {
+             itemArr:['A','B','C','D'],
+             hoverIndex: -1, //表示当前hover的是第几个li 初始为 -1 或 null 不能为0 0表示第一个li
+             clickIndex: -1, //表示当前点击的是第几个li 初始为 -1 或 null 不能为0 0表示第一个li
+           }
+         },
+       }
+      </script>
+       
+      <style>
+       .item{
+         width: 600px;
+         height: 60px;
+       }
+       .item li{
+         width: 80px;
+         height: 60px;
+         line-height: 60px;
+         margin-left: 20px;
+         float: left;
+         text-align: center;
+         cursor: pointer;
+       }
+       .hoverBg{
+         background: #ccc;
+         color: #fff;
+       }
+       .clickBg{
+         background: red;
+         color: #fff;
+       }
+      </style>
+    '''
+  }
+  {
+    name: "vue使用v-for实现hover点击效果.text"
+    mode: "Plain Text"
+    content: '''
+      1.首先写两个不同状态的样式
+      .hoverBg{
+        background: #ccc;
+        color: #fff;
+      }
+      .clickBg{
+        background: red;
+        color: #fff;
+      }
+      2.然后给两个状态绑定两个值
+      	export default {
+        data: function(){
+      		return {
+      				itemArr:['A','B','C','D'],
+      				hoverIndex: -1, //表示当前hover的是第几个li 初始为 -1 或 null 不能为0 0表示第一个li
+      				clickIndex: -1, //表示当前点击的是第几个li 初始为 -1 或 null 不能为0 0表示第一个li
+      			}
+      		},
+      	}
+      3.hover的时候让hoverIndex等于hover的li,点击时候一样
+      	@mouseover="hoverIndex = index"
+      	@click="clickIndex = index"
+      4.鼠标移出又取消移出状态 即让hover的li为 -1 或 null
+      	@mouseout="hoverIndex = -1"
+      5.然后利用 hoverIndex 和 clickIndex 来给li不同的class名 实现效果
+      	:class="{'clickBg':index==clickIndex,'hoverBg':index==hoverIndex}"
+    '''
+    linesHighlighted: []
+  }
+]
+isStarred: false
+isTrashed: false

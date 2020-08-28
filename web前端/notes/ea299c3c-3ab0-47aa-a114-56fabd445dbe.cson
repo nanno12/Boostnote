@@ -1,0 +1,47 @@
+createdAt: "2019-07-11T06:07:53.653Z"
+updatedAt: "2019-07-11T13:05:46.519Z"
+type: "MARKDOWN_NOTE"
+folder: "6328cc90110e506a740e"
+title: "前端代码规范 2019/7/11"
+tags: []
+content: '''
+  ##### 前端代码规范 2019/7/11
+  ###### 函数 & 方法
+  + 小驼峰式命名法
+  + 前缀应该为动词
+  + 常用动词约定
+  ######
+  	can	判断是否可执行某个动作
+  	has	判断是否含义某个值
+  	is	判断是否为某个值
+  	get	获取某个值
+  	set	设置某个值
+  	load	加载某些数据
+  	handle	处理各种事件
+  ###### 变量
+  	所有的变量命名应遵循简洁、语义化的原则。
+  	小驼峰式命名方法
+  	前缀为形容词(函数前缀为动词，以此来区分函数和变量)
+  	let maxCount = 10;
+  	let tableTitle = '啦啦啦';
+  ###### 常量	
+  	名词全部大写
+  	使用大写字母和下划线来组合命名，下划线用来分割单词
+  	const MAX_COUNT = 10;
+  ###### 事件
+  	小驼峰式命名法
+  	前缀设置成handle，比如handleXXXBlur、handleXXXClick
+  ###### 类 & 构造函数
+  	大写驼峰式命名法，首字母大写
+  	前缀为名词
+  ###### 函数 & 方法注释
+  	/**
+  	 * 函数说明
+  	 * @关键字1
+  	 * @关键字2
+  	 **/
+  网址：[代码规范 \\| Aotu.io - 前端代码规范](https://guide.aotu.io/docs/html/code.html)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

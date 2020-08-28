@@ -1,0 +1,55 @@
+{
+  "folders": [
+    {
+      "key": "4d6db505462d196c7fc0",
+      "color": "#FF8E00",
+      "name": "vue框架"
+    },
+    {
+      "key": "950ec24ce910c689fe2e",
+      "color": "#B013A4",
+      "name": "react框架"
+    },
+    {
+      "key": "6b35ebf9856419e181f3",
+      "color": "#B013A4",
+      "name": "js/jQuery方法"
+    },
+    {
+      "key": "6328cc90110e506a740e",
+      "color": "#E8D252",
+      "name": "web基本知识"
+    },
+    {
+      "key": "f376965e603f38f2c59c",
+      "color": "#30D5C8",
+      "name": "Es6"
+    },
+    {
+      "key": "827fc4f97be80918630b",
+      "color": "#30D5C8",
+      "name": "css样式"
+    },
+    {
+      "key": "fd66967395ebcb4cdc41",
+      "color": "#B013A4",
+      "name": "git命令"
+    },
+    {
+      "key": "d12b700090b8756bb26f",
+      "color": "#3FD941",
+      "name": "Element-ui"
+    },
+    {
+      "key": "cec7ded4f2431cea4874",
+      "color": "#3FD941",
+      "name": "bug报错"
+    },
+    {
+      "key": "beadd547cbf8bcba1f07",
+      "color": "#3FD941",
+      "name": "WeChat_小程序"
+    }
+  ],
+  "version": "1.0"
+}

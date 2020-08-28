@@ -1,0 +1,24 @@
+createdAt: "2019-07-10T16:16:20.039Z"
+updatedAt: "2020-04-03T09:26:29.232Z"
+type: "MARKDOWN_NOTE"
+folder: "6328cc90110e506a740e"
+title: "HTML常用特殊字符：2019/7/11"
+tags: []
+content: '''
+  #### HTML常用特殊字符：2019/7/11
+  	&lt;	<	小于号或显示标记
+  	&gt;	>	大于号或显示标记
+  	&amp;	&	可用于显示其它特殊字符
+  	&quot;	“	引号
+  	&reg;	®	已注册
+  	&copy;	©	版权
+  	&trade;	™	商标
+  	&ensp;	 	半个空白位
+  	&emsp;	 	一个空白位
+  	&nbsp;	 	不断行的空白
+  [网页HTML特殊符号代码大全,HTML特殊字符编码对照表 - EightSwords的博客 - CSDN博客](https://blog.csdn.net/EightSwords/article/details/74210517)
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

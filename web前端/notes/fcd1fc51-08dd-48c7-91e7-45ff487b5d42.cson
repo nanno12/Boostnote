@@ -1,0 +1,79 @@
+createdAt: "2019-07-10T15:00:25.102Z"
+updatedAt: "2019-07-25T14:54:58.147Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "css 如何使用媒体查询 2019/7/10"
+tags: [
+  "如何使用媒体查询"
+]
+content: '''
+  ## css 如何使用媒体查询 2019/7/10
+  #### 设置meta标签
+  	<meta name="viewport" content="width=device-width,
+  		initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  + width = device-width：宽度等于当前设备的宽度
+  + initial-scale:初始的缩放比例(默认设置为1.0)
+  + minimum-scale:允许用户缩放到的最小比例(默认设置为1.0)
+  + maximum-scale:允许用户缩放到的最大比例(默认设置为1.0)
+  + user-scalable:用户是否可以手动缩放(默认设置为no，因为我们不希望用户放大缩小页面)
+  
+  ### media查询引入方式
+  
+  ##### 1.link元素中的CSS媒体查询
+  	<link rel="stylesheet" media="(max-width: 800px)"href="example.css" /> 
+  ##### 2.css样式表中媒体查询
+  	@meadia all and (max-width: ) { }
+  ###### 第一种方法是css2媒体查询用法，最大的弊端是他会增加页面http的请求次数，增加了页面负担，我们用CSS3把样式都写在一个文件里面才是最佳的方法。
+  
+  ### css样式表中媒体查询
+  	@media all and (min-width:1000px)
+  ###### @media:一个声明
+  ### 媒体查询用法
+  	500px-800px之间的设备 
+  	 @media screen and (min-width: 500px) and (max-width: 800px) { ... }
+  	最小宽度500  
+  	 @media screen and (min-width: 500px){... }
+  	在非打印设备下 
+  	 @media not print and (max-width: 1200px)
+  ### 媒体类型：
+  + all 用于所有配置
+  + screen 用于电脑、平板电脑、智能手机等
+  + print 用于打印机和打印预览
+  + speech 用于屏幕阅读等发声设备
+  + 逻辑判断（操作）符：
+  + and   并且；
+  + or 或
+  #### 常见媒体尺寸
+  @media screen and (min-width:1200px)
+  @media screen and (min-width:992px)
+  @media screen and (min-width:768px)
+  @media screen and (min-width:480px)
+  
+  
+  #### 媒体属性（有很多种）
+  max-width 设备中的页面最大可见区域宽度
+  min-width 设备中的页面最小可见区域宽度
+  orientation:检测设备目前处于横向还是纵向状态
+  #### 媒体属性共有哪些？
+  width:浏览器可视宽度
+  height:浏览器可视高度
+  device-width:设备屏幕的宽度
+  device-height:设备屏幕的高度
+  orientation:检测设备目前处于横向还是纵向状态
+  aspect-ratio:检测浏览器可视宽度和高度的比例。(例如：aspect-ratio:16/9)
+  device-aspect-ratio:检测设备的宽度和高度的比例
+  color:检测颜色的位数。（例如：min-color:32就会检测设备是否拥有32位颜色）
+  color-index:检查设备颜色索引表中的颜色，他的值不能是负数
+  monochrome:检测单色楨缓冲区域中的每个像素的位数。
+  resolution:检测屏幕或打印机的分辨率
+  #### screen是什么，有哪些媒体类型 ?
+  screen是媒体类型(media type)的一种，用于电脑屏幕、智能手机、平板等，媒体类型也就是网页显示的媒介
+  #### 如何检测设备横屏还是竖屏 ?
+  使用：orientation（检测设备目前处于横向还是纵向状态）
+'''
+linesHighlighted: [
+  4
+  59
+]
+isStarred: false
+isTrashed: false

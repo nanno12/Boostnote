@@ -1,0 +1,76 @@
+createdAt: "2019-11-19T15:33:52.069Z"
+updatedAt: "2019-11-25T05:12:24.375Z"
+type: "MARKDOWN_NOTE"
+folder: "beadd547cbf8bcba1f07"
+title: "2019/11/19 初入小程序 第二章"
+tags: [
+  "小程序"
+  "第二章"
+]
+content: '''
+  ### 2019/11/19 初入小程序 第二章
+  #### 关于事件
+  1.事件的使用方式
+  		
+  	<view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>
+  	Page({
+    	tapName: function(event) {
+      console.log(event)
+    	}
+  	})
+  2.使用WXS函数响应事件
+  
+  3.事件分类
+  
+  	touchstart	手指触摸动作开始	
+  	touchmove	手指触摸后移动	
+  	touchcancel	手指触摸动作被打断，如来电提醒，弹窗	
+  	touchend	手指触摸动作结束	
+  	tap		手指触摸后马上离开	
+  	longpress	手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发	1.5.0
+  	longtap		手指触摸后，超过350ms再离开（推荐使用longpress事件代替）	
+  	transitionend	会在 WXSS transition 或 wx.createAnimation 动画结束后触发	
+  	animationstart	会在一个 WXSS animation 动画开始时触发	
+  	animationen  会 在一个 WXSS animation 动画完成时触发	
+  	touchforcechange	在支持 3D Touch 的 iPhone 设备，重按时会触发
+  	animationiteration	会在一个 WXSS animation 一次迭代结束时触发	
+  #### 关于组件模板和样式
+  #### 生命周期方法
+  生命周期可以直接定义在Component里面
+  1.组件生命周期
+  在 lifetimes 字段内进行声明（这是推荐的方式，其优先级最高）。
+  	
+  	Component({
+    	lifetimes: {
+  		attached() {// 在组件实例进入页面节点树时执行},
+  		detached() {// 在组件实例被从页面节点树移除时执行},
+  		}
+  	})
+  可用的全部生命周期如下表所示。
+  
+  	created		在组件实例刚刚被创建时执行		1.6.3
+  	attached	在组件实例进入页面节点树时执行	1.6.3
+  	ready		在组件在视图层布局完成后执行		1.6.3
+  	moved		在组件实例被移动到节点树另一个位置时执行	1.6.3
+  	detached	在组件实例被从页面节点树移除时执行	1.6.3
+  	error	Object Error	每当组件方法抛出错误时执行
+  
+  2.组件界面生命周期
+  在 pageLifetimes 定义段中定义
+  
+  	Component({
+  	 pageLifetimes: {
+  		show() { // 页面被展示 },
+  		hide() { // 页面被隐藏 },
+  		resize(size) { 	// 页面尺寸变化 }
+  	 }
+  	})
+  其中可用的生命周期包括：
+  
+  	show	无	组件所在的页面被展示时执行	2.2.3
+  	hide	无	组件所在的页面被隐藏时执行	2.2.3
+  	resize	Object Size	组件所在的页面尺寸变化时执行	2.4.0
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,93 @@
+createdAt: "2019-08-26T12:47:27.047Z"
+updatedAt: "2019-08-26T12:59:37.697Z"
+type: "SNIPPET_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vue自定义单选框组件"
+tags: [
+  "vue自定义单选框组件"
+]
+description: "vue自定义单选框组件"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "vue自定义单选框组件"
+    mode: "Vue.js Component"
+    content: '''
+      html 2019/8/26
+      <div class="radioBox">
+      		<label class="my-radio" v-for="(item, index) in options" :key="index" >
+      				<input class="radio-icon" type="radio" :name="name" :value="item" @change="updataInp">
+      				<span class="radio-content">{{item}}</span>
+      		</label>
+      </div>
+      js
+      <script>
+      export default {
+        name: 'my-radio', // 组件名
+        model: { // 自定义 v-model的 prop和event
+          prop: 'options', // 属性
+          event: 'updataInp' // 事件
+        },
+        props: {
+          options: { // radio的value属性，每一项的名称
+            type: Array, // 数据类型
+            required: true // 是否为必填的字符串
+            // default: 100默认值（仅示意）
+          },
+          name: {
+            type: [Number, String],
+            required: true
+          }
+        },
+        methods: {
+          updataInp (ev) {
+            // console.log(ev.target.value)
+            this.$emit('change', ev.target.value)
+          }
+        }
+      }
+      </script>
+      style
+       <style>
+      	.radio-icon:checked + .radio-content {
+      			border-radius: 11px;
+      			background-color: #ffe200;
+      			border-color: #ffe200;
+      		}
+      	</style>
+      
+      在其他页面调用引入
+      1.)在<script>内引入：
+      import myRadio from './CustomComponent/myRadio.vue'
+      2.)在components内注册：
+        components: {
+          myRadio
+      }
+      3.)<myRadio :options="['是', '否', '搞不清']" :name="1" @change="updataVal"></myRadio>
+      父子组件传值
+      <script>
+      // 子组件：
+         // this.$emit() ：子组件发出数据
+         //  ev.target.value：单选选中的value值，必须写在input 的value内才能取到
+        methods: {
+          updataInp (ev) {
+            // console.log(ev.target.value)
+            this.$emit('change', ev.target.value)
+          }
+        }
+       
+      
+      // 父组件：
+          // 父组件updataVal内有一个参数，此参数就是子组件传过来的值
+        methods: {
+          updataVal (option) {
+            console.log(option)
+          }
+        }
+      	</script>
+      
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

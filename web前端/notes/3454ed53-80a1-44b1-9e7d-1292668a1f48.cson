@@ -1,0 +1,32 @@
+createdAt: "2019-07-11T12:06:03.603Z"
+updatedAt: "2019-07-11T12:24:26.356Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "动态设置:img 2019/7/11"
+tags: [
+  "动态设置属性"
+]
+content: '''
+  ###### 动态设置:img 2019/7/11
+  	html
+  	<el-radio style="width:50%" 
+  	   v-for="(item,index) in rechargePayRadioData"
+  	   :key="index"
+  	    v-model="rechargePayRadio" :label="item.label">
+  	  <img :src="item.rechargePayImg" :alt="item.describe">{{item.name}}
+  	</el-radio>
+  	js
+  	rechargePayRadioData: [
+  	{
+  		name:'现金',
+  		describe:'现金支付',
+  		label:'1',
+  		'rechargePayImg':require('../assets/现金支付 .svg')
+  	},
+  	]
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

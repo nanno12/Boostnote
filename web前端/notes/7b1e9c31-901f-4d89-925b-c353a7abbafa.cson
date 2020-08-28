@@ -1,0 +1,16 @@
+createdAt: "2019-07-11T12:51:30.164Z"
+updatedAt: "2019-07-11T12:52:23.307Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "v-for获取循环的下标 2019/7/11"
+tags: [
+  "v-for获取循环的下标"
+]
+content: '''
+  ###### v-for获取循环的下标 2019/7/11
+  	语法：<li v-for="(arr,index) in arr">{{arr.text}}</li>      
+  	/*index表示当前数组的下标*/
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

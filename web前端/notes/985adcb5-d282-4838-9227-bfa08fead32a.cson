@@ -1,0 +1,46 @@
+createdAt: "2019-06-23T07:47:58.959Z"
+updatedAt: "2019-12-06T06:17:19.214Z"
+type: "MARKDOWN_NOTE"
+folder: "fd66967395ebcb4cdc41"
+title: "从远程拉取代码 2019/8/28"
+tags: []
+content: '''
+  #### 从远程拉取代码 2019/8/28
+  git init （初始化）
+  git remote add origin 远程分支地址 （与远程分支建立连接）
+  git fetch origin dev (把分支拉取到本地，dev 为远程仓库的分支名)
+  git pull origin text (把远程代码拉取到本地)
+  
+  #### 开发中常用操作
+  删除文件：git rm 文件名[删除本地git仓库文件, 提交后远程服务器上的文件才会消失]
+  查看状态：git status
+  添加记录：git add 文件名 或 git add . [将文件提交到远程git服务器上]
+  添加描述：git commit -m "描述或备注类似svn提交时的注释"
+  同步数据：git pull  [获取git远程服务器上的数据也可以具体到某一分支如: git pull origin 分支名]
+  提交数据：git push origin 分支名
+  
+  #### 分支操作
+  查看分支：git branch
+  创建分支：git branch 分支名
+  切换分支：git checkout 分支名
+  删除分支：git branch -d 分支名 （在主分支中）
+  查询当前远程的版本：git remote -v
+  本地分支推送远程：git push origin 分支名
+  删除远程分支：git push origin --delete 分支名 
+  创建+切换分支：git checkout -b 分支名
+  合并某分支到当前分支：git merge 分支名
+  清楚npm 缓存 （mac）
+  sudo nom cache clean -f
+  安装最新版本的Node helper：
+  sudo npm install -g n
+  
+  npm install
+  
+  #### 仓库操作2019/12/2
+  查看仓库 git remote -v
+  删除本地仓库：git remote rm origin
+  重新拉取远程仓库：                           （远程仓库地址）
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

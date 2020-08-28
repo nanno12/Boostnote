@@ -1,0 +1,27 @@
+createdAt: "2019-09-10T02:12:24.043Z"
+updatedAt: "2019-09-12T06:30:55.180Z"
+type: "MARKDOWN_NOTE"
+folder: "950ec24ce910c689fe2e"
+title: "安装 2019/9/10"
+tags: [
+  "react安装以及核心概念"
+]
+content: '''
+  #### 安装 2019/9/10
+  	npx create-react-app 项目名称 （创建一个react项目）
+  	cd 项目名称 （到创建的项目中）
+  	npm start （运行）
+  #### 核心概念
+  主要基于组件开发 
+  大写开头的都是组件
+  facebook推出 2013年开源 健全的文档于完整的社区
+  16版本以后的称之为 react Fiber 因为增加了一些底层实现
+  
+  #### JSX语法
+  	可以在react中直接使用标签，是JavaScript的语法扩展
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

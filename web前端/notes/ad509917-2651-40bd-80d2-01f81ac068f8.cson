@@ -1,0 +1,57 @@
+createdAt: "2019-07-11T12:42:02.432Z"
+updatedAt: "2019-07-11T12:48:19.817Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "页面跳转传值 2019/7/11"
+tags: [
+  "vue中页面跳转传值的几种方式"
+]
+content: '''
+  ### 页面跳转传值 2019/7/11
+  ##### router-link
+  	URL路径：http://localhost:8081/#/test?userid=1
+  	
+  	<router-link :to="{path:'/test',query: {userid: id}}">跳转</router-link>
+  	收：
+  	var id = this.$route.query.userid
+  
+  ###### to前面一定要加 : ，一定要记得加！记得加！加！
+  ###### to后面 { 中的name值（这里是userid）要与路由中的name值一致
+  
+  ##### this.$router.push()
+  ###### 1、使用path+query
+  	URL路径：http://localhost:8081/#/selectCate?userid=1
+  	发：
+  	var id = 1;
+  	this.$router.push({path:'/selectCate',query:{userid:id}});
+  	收：
+  	var id = this.$route.query.userid;
+  	这里注意接收到的是字符串，但id是数字，所以需要转化一下：
+  	var id = parseInt(this.$route.query.userid);
+  
+  ###### 2、使用name+params
+  	URL路径：http://localhost:8081/#/selectCate?userid=1
+  	发：
+  	var id = 1;
+  	this.$router.push({name:'selectCate',params:{userid:id}});
+  
+  	收：
+  	var id = this.$route.params.userid;
+  
+  ###### 总结：使用query，传输的值会在url后面以参数的形式显示出来，而params不会。
+  
+  ##### LocalStorage存值
+  ###### 总这么跳来跳去的，还每次都带个’包’走，还不如把这些数据存一下，用的时候取出来。
+  ######
+  	//保存userid至内存
+  	var userID = 1;
+  	localStorage.setItem('storeID',JSON.stringify(userID));
+  
+  	//取，注意这里取出的是字符串。
+  	this.userID= JSON.parse(localStorage.userID);
+  	
+  网址：[vue中页面跳转传值的几种方式 - HYeeee的博客 - CSDN博客](https://blog.csdn.net/HYeeee/article/details/82691376)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

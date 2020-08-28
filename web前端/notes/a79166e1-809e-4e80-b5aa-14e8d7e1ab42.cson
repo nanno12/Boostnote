@@ -1,0 +1,172 @@
+createdAt: "2019-07-10T15:26:00.954Z"
+updatedAt: "2019-07-10T15:54:45.182Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "css/html速写一 2019/7/10"
+tags: []
+content: '''
+  css/html速写一 2019/7/10
+  ##### 快速生成
+  	<div id="page">
+      <div class="logo"></div>
+      <ul id="navigation">
+          <li><a href="">Item 1</a></li>
+          <li><a href="">Item 2</a></li>
+          <li><a href="">Item 3</a></li>
+          <li><a href="">Item 4</a></li>
+          <li><a href="">Item 5</a></li>
+      </ul>
+  	</div>
+  ###### #page>div.logo+ul#navigation>li*5>a{Item $}
+  
+  ##### 生成带有 id 、class 的 HTML 标签
+  ###### Emmet 默认的标签为 div，如果我们不给出标签名称的话，默认就生成 div 标签。生成 id 为 page 的 div 标签，我们只需要编写下面指令：
+  	div#page
+  	或者使用默认标签的方式：
+  	#page
+  	
+  	如果编写一个 class 为 content 的 p 标签，我们需要编写下面指令：
+  	p.content
+  	
+  	同时指定标签的 id 和 class，如生成 id 为 navigation，class 为 nav 的 ul 标签：
+  	ul#navigation.nav
+  	
+  	指定多个 class，如上例中还需要给 ul 指定一个 class 为 dropdown：
+  	ul#navigation.nav.dropdown
+  	生成的 HTML 结构如下：
+  	<ul id="navigation" class="nav dropdown"></ul>
+  ##### 兄弟：+
+  ###### 生成标签的兄弟标签，即平级元素，使用指令 + ，例如下面指令：
+  	div+ul+bq
+  	
+  	生成的 HTML 结构如下：
+  	<div></div>
+  	<ul></ul>
+  	<blockquote></blockquote>
+  
+  ##### 后代：>
+  ###### > 表示后面要生成的内容是当前标签的后代。例如我要生成一个无序列表，而且被 class 为 nav 的 div 包裹，那么可以使用下面指令：
+  	div.nav>ul>li
+  
+  	生成的 HTML 结构如下：
+  	<div class="nav">
+  	 <ul>
+  	  <li></li>
+  	 </ul>
+  	</div>
+  ##### 上级元素：^
+  ###### 上级 （Climb-up）元素是什么意思呢？前面咱们说过了生成下级元素的符号“>”，当使用 div>ul>li 的指令之后，再继续写下去，那么后续内容都是在 li 下级的。如果我想编写一个跟 ul 平级的 span 标签，那么我需要先用 “^” 提升一下层次。例如：
+  	div.nav>ul>li^span
+  	
+  	就会生成如下结构：
+  	<div  class="nav">
+  	  <ul>
+  	   <li></li>
+  	  </ul>
+  	  <span></span>
+  	</div>
+  ###### 如果我想相对与 div 生成一个平级元素，那么就再上升一个层次，多用一个 “^” 符号
+  	div.nav>ul>li<sup></sup>span
+  	
+  	结果如下：
+  	<div  class="nav">
+  	 <ul>
+  	  <li></li>
+  	 </ul>    
+  	</div>
+  	<span></span>
+  ##### 重复多份：*
+  ###### 特别是一个无序列表，ul 下面的 li 肯定不只是一份，通常要生成很多个 li 标签。那么我们可以直接在 li 后面 * 上一些数字：
+  	ul>li*5
+  	
+  这样就直接生成五个项目的无序列表了。如果想要生成多份其他结构，方法类似。
+  
+  ##### 分组：()
+  ###### 用括号进行分组，表示一个代码块，分组内部的嵌套和层级关系和分组外部无关，例如：
+  	div>(header>ul>li*2>a)+footer>p
+  	生成结构如下：
+  	<div>
+  	  <header>
+  	    <ul>
+  	      <li><a href=""></a></li>
+  	      <li><a href=""></a></li>
+  	    </ul>
+  	  </header>
+  	  <footer>
+  	    <p></p>
+  	  </footer>
+  	</div>
+  ###### 可以看出整个分组成为 div 的后代，并且分组与 footer 平级。此外，分组还可以很方便的结合上面说的 “*” 符号生成重复结构：
+  
+  	(div>dl>(dt+dd)*3)+footer>p
+  	生成结构如下：
+  	<div>
+  	 <dl>
+  	  <dt></dt>
+  	  <dd></dd>
+  	  <dt></dt>
+  	  <dd></dd>
+  	  <dt></dt>
+  	  <dd></dd>
+  	 </dl>
+  	</div>
+  	<footer>
+  	<p></p>
+  	</footer>
+  #### 编号：$
+  ###### 例如无序列表，我想为五个个 li 增加一个 class 属性值 item1 ，然后依次递增从 1-5，那么就需要使用 $ 符号：
+  
+  	ul>li.item$*5
+  	结构是：
+  	<ul>
+  	 <li class="item1"></li>
+  	 <li class="item2"></li>
+  	 <li class="item3"></li>
+  	 <li class="item4"></li>
+  	 <li class="item5"></li>
+  	</ul>
+  ###### $ 表示一位数字，只出现一个的话，就从 1 开始，如果出现多个，就从 0 开始。如果我想生成三位数的序号，那么要写三个 $：
+  
+  	ul>li.item$$$*5
+  	
+  	<ul>
+  		<li class="item001"></li>
+  		<li class="item002"></li>
+  		<li class="item003"></li>
+  		<li class="item004"></li>
+  		<li class="item005"></li>
+  	</ul>
+  ###### 此外，也可以在 $ 后面增加 @- 来实现倒序排列：
+  	ul>li.item$@-*5
+  	<ul>
+  		<li class="item5"></li>
+  		<li class="item4"></li>
+  		<li class="item3"></li>
+  		<li class="item2"></li>
+  		<li class="item1"></li>
+  	</ul>
+  ###### 同时，还可以使用 @N 指定开始的序号：
+  	ul>li.item$@3*5
+  	<ul>
+  		<li class="item3"></li>
+  		<li class="item4"></li>
+  		<li class="item5"></li>
+  		<li class="item6"></li>
+  		<li class="item7"></li>
+  	</ul>
+  ###### 配合上面倒序输出，可以这样写：
+  	ul>li.item$@-3*5
+  	就可以生成以 3 为底倒序列表：
+  	<ul>
+  		<li class="item7"></li>
+  		<li class="item6"></li>
+  		<li class="item5"></li>
+  		<li class="item4"></li>
+  		<li class="item3"></li>
+  	</ul>
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

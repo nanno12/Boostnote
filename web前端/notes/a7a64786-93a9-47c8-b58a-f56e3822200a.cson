@@ -1,0 +1,69 @@
+createdAt: "2019-08-01T03:36:15.931Z"
+updatedAt: "2019-08-05T11:20:59.318Z"
+type: "SNIPPET_NOTE"
+folder: "d12b700090b8756bb26f"
+title: "element-ui自定义正则"
+tags: [
+  "element-ui自定义正则"
+]
+description: "element-ui自定义正则"
+snippets: [
+  {
+    linesHighlighted: []
+    name: "element-ui自定义正则.vue"
+    mode: "Vue.js Component"
+    content: '''
+      //指定数据中心的验证表单valiForm，验证规则rules
+      <el-form :model="valiForm" :rules="rules" ref="valiForm" label-width="100px" class="demo-valiForm">
+      
+              <el-form-item label="名称：" :label-width="formLabelWidth" prop='name'>
+                <el-input v-model="valiForm.name"></el-input>
+              </el-form-item>
+      
+      </el-form>
+      <script>
+      //add('valiForm')方法要传验证表单名
+      <el-button type="primary" @click="add('valiForm')">确 定</el-button>
+       data () {
+          let nameRule1 = (rule, value, callback) => {
+            let regExp = //;
+            if (regExp.test(value) === false) {
+                 callback(new Error('不通过正则'));
+              } else {
+                callback();
+            }
+          };
+      
+          return {
+            valiForm: {
+                name: ''
+            },
+            rules: {
+                name: [
+                  { required: true, message: '请输入名称', trigger: 'blur' },
+                  { min: 5, max: 10, message: '长度在 5 到 10 个字符', trigger: 'blur' },
+                  { validator: nameRule1, trigger: 'blur' }
+                ]
+            }
+      
+          };
+        },
+      	methods:{
+      		add(formName) {
+      					this.$refs[formName].validate((valid) => {
+      							if (valid) {
+      								//通过验证执行
+      							} else {
+      								//验证失败执行
+      									console.log('error submit!!');
+      									return false;
+      							}
+      					});
+      			}
+      }
+      	</script>		
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

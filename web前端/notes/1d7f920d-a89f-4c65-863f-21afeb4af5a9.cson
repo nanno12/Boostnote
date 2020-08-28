@@ -1,0 +1,162 @@
+createdAt: "2019-07-25T13:51:36.699Z"
+updatedAt: "2019-07-25T14:55:13.855Z"
+type: "MARKDOWN_NOTE"
+folder: "827fc4f97be80918630b"
+title: "媒体查询  2019/7/25"
+tags: []
+content: '''
+  # 媒体查询  2019/7/25
+  ### 1.首先要了解一下什么是媒体查询
+  	媒体查询可以让我们根据设备显示器的特性（如视口宽度、屏幕比例、设备方向：横向或纵向）为其设定CSS样式，
+  	媒体查询由媒体类型和一个或多个检测媒体特性的条件表达式组成。
+  	媒体查询中可用于检测的媒体特性有 width 、 height 和 color （等）。
+  	使用媒体查询，可以在不改变页面内容的情况下，为特定的一些输出设备定制显示效果。
+  
+  ### 2.如何在css中引入媒体查询
+  	媒体查询写在CSS样式代码的最后，CSS是层叠样式表，在同一特殊性下，靠后的的样式会重叠前面的样式
+  
+  ### 3.开始在html中写入Media
+  ##### 1）.在html头部添加以下代码，用来显示兼容移动设备的显示效果
+  
+  	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  ###### 参数详解：
+  - width=device-width ：宽度等于当前设备的宽度
+  - initial-scale=1 ：初始的缩放比例。（默认为1）
+  - minimum-scale=1 ：允许用户缩放到的最小比例。（默认为1）
+  - maximum-scale=1 ：允许用户缩放到的最大比例。（默认为1）
+  - user-scalable=no ：用户是否可以手动缩放（默认为no）
+  ##### 2）.引入包含Media的css文件
+  
+  - 一般情况html和css代码都是分开写的，media也不例外
+  
+  		<link rel="stylesheet" type="text/css" href="m320.css" media="only screen and (max-width:320px)"/>
+  		<link rel="stylesheet" type="text/css" href="m480.css" media="only screen and (min-width:321px) and (max-width:375px)"/>
+  
+  ##### 3）写Media中的代码
+  
+  ❤以某个网页的响应式布局为例
+  
+  结构:@media 设备类型 and (设备特性)｛样式代码｝
+  
+  /*媒体查询*/
+  /*当页面大于1200px 时，大屏幕，主要是PC 端*/
+  @media (min-width: 1200px) {
+      
+  }
+  /*在992 和1199 像素之间的屏幕里，中等屏幕，分辨率低的PC*/
+  @media (min-width: 992px) and (max-width: 1199px) {
+      #adver .center {
+          width: 50%;
+          margin: -10px 0 0 -25%;
+      }
+      main .center h2 {
+          font-size: 40px;
+      }
+  }
+  /*在768 和991 像素之间的屏幕里，小屏幕，主要是PAD*/
+  @media (min-width: 768px) and (max-width: 991px) {
+      #adver .center {
+          width: 60%;
+          margin: -10px 0 0 -30%;
+      }
+      #adver .search, #adver .button {
+          font-size: 20px;
+      }
+      main .center h2 {
+          font-size: 35px;
+      }
+  }
+  /*在480 和767 像素之间的屏幕里，超小屏幕，主要是手机*/
+  @media (min-width: 480px) and (max-width: 767px) {
+      header, header .center, header .link {
+          height: 45px;
+      }
+      header .logo, .sm-hidden,.sidebar,.md-hidden {
+          display: none;
+      }
+      header .link {
+          width: 100%;
+          line-height: 45px;
+      }
+      #adver {
+          padding: 45px 0 0 0;
+      }
+      #adver .center {
+          width: 70%;
+          height: 53px;
+          margin: -10px 0 0 -35%;
+      }
+      #adver .search, #adver .button {
+          height: 45px;
+          font-size: 18px;
+      }
+      .sm-visible {
+          display: block;
+      }
+      main .center h2 {
+          font-size: 30px;
+      }
+      main .center p {
+          font-size: 15px;
+      }
+      main figure {
+          width: 49.2%;
+      }
+  }
+  /*在小于480 像素的屏幕，微小屏幕，更低分辨率的手机*/
+  @media (max-width: 479px) {
+      header, header .center, header .link {
+          height: 45px;
+      }
+      header .logo, .xs-hidden, .sm-hidden, .sidebar, .md-hidden  {
+          display: none;
+      }
+      header .link {
+          width: 100%;
+          line-height: 45px;
+      }
+      header .link li {
+          width: 25%;
+  
+  	}
+  	#adver {
+  			padding: 45px 0 0 0;
+  	}
+  	#adver .center {
+  			width: 80%;
+  			height: 48px;
+  			margin: -10px 0 0 -40%;
+  	}
+  	#adver .search, #adver .button {
+  			height: 40px;
+  			font-size: 16px;
+  	}
+  	.sm-visible {
+  			display: block;
+  	}
+  	footer .bottom, footer .version {
+  			font-size: 13px;
+  	}
+  	main .center h2 {
+  			font-size: 26px;
+  	}
+  	main .center p {
+  			font-size: 14px;
+  	}
+  	main figure {
+  			width: 99%;
+  	}
+  }
+  响应式布局的原理就是在不同的窗口大小下显示不同的结构和样式。只要掌握好css的样式，响应式布局就没问题(≧▽≦)/啦啦啦
+  
+  ❤最后再补充一点常用的设备类型（媒体类型）
+  1.all (所有的设备)
+  2.screen (电脑显示器)
+  3.print (打印用纸或打印预览图)
+  4.handheld (便携设备)
+  5.tv (电视机类型的设备)
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

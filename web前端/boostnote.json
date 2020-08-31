@@ -1,6 +1,11 @@
 {
   "folders": [
     {
+      "key": "c9c09e42c05cc3557f1d",
+      "color": "#FF8E00",
+      "name": "封装方法"
+    },
+    {
       "key": "4d6db505462d196c7fc0",
       "color": "#FF8E00",
       "name": "vue框架"

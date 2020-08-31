@@ -1,0 +1,176 @@
+createdAt: "2020-08-31T09:09:08.265Z"
+updatedAt: "2020-08-31T09:34:26.307Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "html"
+tags: [
+  "css"
+  "html"
+]
+content: '''
+  ## html
+  ### XHTML和HTML的区别？
+  1.XHTML 元素必须被正确地嵌套。 XHTML是HTML的严格模式。
+  2.XHTML 元素必须被关闭。
+  3.标签名必须用小写字母。
+  4.XHTML 文档必须拥有根元素。
+  ### DOCTYPE有什么作用？
+  定义文档类型，让浏览器解析器知道应该用哪个规范来解析文档。<!DOCTYPE>声明必须在 HTML 文档 的第一行，这并不是一个 HTML 标签。
+  ### html标签有哪些类型？
+  + 块级元素
+  特点：自上而下排列的，可以设置宽和高，独占一行h1-h6、p、ul、li、ol、dl、dt、dd、form、 table。。。
+  + 行内（内联）元素
+  特点：横向排列的，不能设置宽和高，大小是由内容撑开的 span、font、b、strong、em、i、 a。。。
+  + 行内（内联）块元素
+  特点：横向排列的，可以设置宽和高 img、所有的input、select、textarea。。。
+  ### 标签语义化的优点
+  + HTML结构清晰
+  + 代码可度性好
+  + 无障碍阅读
+  + 搜索引擎可根据标签的语言确定上下文和权重问题
+  + 移动设备能更完美的展示页面
+  + 便于团队维护开发
+  
+  ### h5新增语义化标签
+  + section：章节、页眉、栏目。可以与标题标签结合使用
+  + article：文章标签
+  + aside：广告、侧边栏
+  + header：头部标签
+  + footer：页脚标签
+  + nav：导航标签
+  + figure:插图用的标签,在figure下嵌套img标签
+  + video视频
+  + audio音频
+  + mark高亮显示
+  + canvas画布
+  + datalist数据集
+  
+  ```html
+   video视频  audio音频
+  <video src="video/mov_bbb.mp4" controls="controls"></video> 
+  <audio src="music/金志文 - 夏洛特烦恼.mp3" controls="controls" autoplay="autoplay" loop="loop"></audio> 
+  source可以有多个，如果当前浏览器不支持此格式的视频，有其他的格式做备用 
+  支持的视频格式：mp4、ogg（ogv）、webm 
+  scr表示路径 
+  controls 播放控件 
+  autoplay自动播放 
+  loop循环播放 
+  poster 视频封面 
+  muted 静音 
+  ```
+  ### 五大浏览器内核
+  + Trident   IE
+  + Gecko     firefox 
+  + Presto    opera 
+  + Webkit    chrome/safari 
+  + Blink     chrome
+  
+  ## CSS
+  ### css样式表类型有哪些？
+  #### 内联样式表
+  在标签内部的style属性里面写
+  #### 内部样式表
+  ```html
+  <style> 
+      选择器{属性:属性值;} 
+  </style>
+  ```
+  #### 外部样式表
+  ##### 引入方式
+  ```html
+  <link rel="stylesheet" type="text/css" href=""/> 
+  <style> 
+      @import url(); 
+  </style> 
+  ```
+  ##### 引入区别
+    + link是html的标签,import是css提供的一种方式
+    + link，页面与样式同时加载，而@import必须先加载页面再加载样式。
+    + @import可能会有兼容性问题，而link标签没有这个问题
+    + 使用dom控制样式时：link能被dom控制，而@import不能被dom控制
+  
+  ### css选择器
+  标签选择器
+  class选择器
+  id选择器
+  `*`通配符
+  伪类选择器:
+  a:link{属性:属性值;}超链接初始状态
+  a:visited{属性:属性值;}超链接访问后的状态
+  a:hover{属性:属性值;}鼠标滑动到上面时的状态
+  a:active{属性:属性值;}超链接被激活时的状态，即鼠标点下左键时的状态
+  注意:伪类选择器有浏览器缓存问题，点击超链接a访问过后，会缓存，需要清除历史记录，才能再看到超链接 的初始状态
+  ### 介绍一下css的权重
+  上面已经说过，css是层叠样式表，有优先级。权重越大的样式的优先级越高，css权重以四位数表示分别如下：
+  标签选择器的权重为0001
+  class选择器的权重为0010
+  id选择器的权重为0100
+  伪类选择器的权重为0010
+  包含选择器的权重为包含选择器的权重之和
+  内联样式的权重为1000
+  ### css3新增选择器
+  #### 序列选择器
+  ##### 1.序列选择器(同级别)
+  `:first-child` 同级别第一个
+  `:last-child` 同级别最后一个
+  `:nth-child(n)` 同级别的第n个
+  `:nth-last-child(n)` 同级别倒数第n个
+  `:only-child` 父元素中唯一的一个标签
+  ##### 2.同类型,可以被隔开
+  
+  `:first-of-type` 选中同级中同类型的第一个
+  `:last-of-type`选中同级中同类型的最后一个
+  `:nth-of-type （n）`选中同级中同类型的第n个
+  `:nth-last-of-type(n)` 选中同级中同类型的倒数第n个
+  `:only-of-type `选中父元素中唯一类型的标签
+  `:not` 否定选择器 同种元素 只有自身不起作用，其它的都起作用。
+  `:root `选择文档的根元素 对根元素起作用
+  #### 层次选择器
+  
+  后代选择器（E F）最常见的选择器 没有兼容问题`*`
+  子元素选择器（E>F） 选择某元素的子元素 IE6不支持`*`
+  相邻兄弟选择器（E+F）紧跟在另一元素后面的元素。不能被隔开`*`
+  通用兄弟选择器（E~F）指定选择器后面的所有选择器选中的标签。可以被隔开。
+  
+  
+  ### 盒模型
+  盒模型是css布局的基石，决定了网页元素如何显示以及元素相互之间的关系,盒模型是一种形象的称呼，在css里面规定了所有的标签都有一个盒模型。
+  
+  盒模型组成：margin（边界、外边距）、padding（内边距、填充、补白）、border（边框）、 content（内容---width和height）
+  
+  盒模型有以下两种:
+  w3c标准盒模型
+  
+  盒模型的宽度 = 左右margin + 左右padding + 左右border + width（内容）
+  
+  IE怪异盒模型
+  
+  盒模型的宽度 = 左右margin + width（内容）--- 包含了padding和border
+  
+  区别：
+  
+  标准盒模型和怪异盒模型的区别在于计算方式的不同,怪异盒模型的宽度在计算时包含了padding和border
+  
+  设置怪异盒模型的方法:
+  在css3里面提供了一个属性，可以把标准盒模型转成怪异盒模型使用
+  
+  box-sizing:border-box(把标准盒模型转成怪异盒模型)/content-box;(标准盒模型--默认值)
+  
+  
+  如果希望全部转成怪异盒模型，在*里面设置box-sizing:border-box;
+  
+'''
+linesHighlighted: [
+  50
+  58
+  75
+  72
+  61
+  67
+  81
+  92
+  100
+  167
+]
+isStarred: false
+isTrashed: false

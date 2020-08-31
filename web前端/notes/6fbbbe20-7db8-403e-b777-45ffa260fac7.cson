@@ -1,0 +1,58 @@
+createdAt: "2020-08-31T06:23:49.698Z"
+updatedAt: "2020-08-31T06:25:00.678Z"
+type: "SNIPPET_NOTE"
+folder: "c9c09e42c05cc3557f1d"
+title: "滚动条距离封装"
+tags: [
+  "滚动条距离封装"
+]
+description: "滚动条距离封装"
+snippets: [
+  {
+    linesHighlighted: [
+      1
+      14
+    ]
+    name: "滚动条距离封装.js"
+    mode: "JavaScript"
+    content: '''
+      // 封装滚动条滚动的距离
+      function getScrollOffset() {
+      	if(window.pageXOffset) {
+      		return {
+      			x:window.pageXOffset,
+      			y:window.pageYOffset
+      		}
+      	} else {
+      		return {
+      			x:document.body.scrollLeft + document.documentElement.scrollLeft,
+      			y:document.body.scrollTop + document.documentElement.scrollTop,
+      		}
+      	}
+      }
+      function getViewportOffset() {
+      	if(window.innerWidth) {
+      		return {
+      			w:window.innerWidth,
+      			h:window.innerHight
+      		}
+      	} else {
+      		if(document.compatMode === 'BackCompat'){
+      				return {
+      					w:document.body.clientWidth,
+      					h:document.body.clientHeight,
+      				}
+      		} else {
+      			return {
+      					w:document.documentElement.clientWidth,
+      					h:document.documentElement.clientHeight,
+      				}
+      		}
+      		
+      	}
+      }
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

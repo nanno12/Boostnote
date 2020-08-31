@@ -1,5 +1,5 @@
 createdAt: "2019-07-30T13:25:49.676Z"
-updatedAt: "2019-08-28T11:06:03.794Z"
+updatedAt: "2020-08-31T06:36:32.079Z"
 type: "MARKDOWN_NOTE"
 folder: "f376965e603f38f2c59c"
 title: "最常用的ES6特性"
@@ -13,7 +13,61 @@ content: '''
   
   扩展运算符
   
+  ### 如何隐藏所有指定的元素
+  ```js
+  const hide = (el) => Array.from(el).forEach(e => (e.style.display = 'none'));
   
+  // 事例:隐藏页面上所有`<img>`元素?
+  hide(document.querySelectorAll('img'))
+  
+  ```
+  ### 如何获取当前页面的滚动位置？
+  ```js
+  const getScrollPosition = (el = window) => ({
+    x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
+    y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
+  });
+  
+  // 事例 刷新时获取
+  console.log(getScrollPosition());
+  ```
+  ### 如何在等待指定时间后调用提供的函数？
+  
+  ```js
+  const delay = (fn, wait, ...args) => setTimeout(fn, wait, ...args);
+  delay(
+    function(text) {
+      console.log(text);
+    },
+    1000,
+    'later'
+  ); 
+  ```
+  ### 如何将字符串复制到剪贴板？
+  ```js
+    const el = document.createElement('textarea');
+    el.value = str;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    const selected =
+      document.getSelection().rangeCount > 0 ? document.getSelection().getRangeAt(0) : false;
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    if (selected) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(selected);
+    }
+  };
+  
+  // 事例
+  copyToClipboard('Lorem ipsum'); 
+  // 'Lorem ipsum' copied to clipboard
+  
+  
+  ```
 '''
 linesHighlighted: []
 isStarred: false

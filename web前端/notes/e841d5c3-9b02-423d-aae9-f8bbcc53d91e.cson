@@ -1,0 +1,223 @@
+createdAt: "2020-08-31T07:00:10.944Z"
+updatedAt: "2020-08-31T08:57:13.169Z"
+type: "MARKDOWN_NOTE"
+folder: "4d6db505462d196c7fc0"
+title: "vue开发必须知识"
+tags: [
+  "动态组件加载"
+]
+content: '''
+  ## vue开发必须知识
+  ### v-once 
+  场景:有些 template 中的静态 dom 没有改变,这时就只需要渲染一次,可以降低性能开销
+  ```html
+  <span v-once> 这时只需要加载一次的标签</span>
+  ```
+  > `v-once `和 `v-pre` 的区别: `v-once`只渲染一次；`v-pre`不编译,原样输出
+  ### v-pre
+  场景:vue 是响应式系统,但是有些静态的标签不需要多次编译,这样可以节省性能
+  ```html
+  <span v-pre>{{ this will not be compiled }}显示的是{{ this will not be compiled }}</span>   
+  <span v-pre>{{msg}}即使data里面定义了msg这里仍然是显示的{{msg}}</span>
+  ```
+  ### 调试 template
+  场景:在Vue开发过程中, 经常会遇到template模板渲染时JavaScript变量出错的问题, 此时也许你会通过console.log来进行调试 这时可以在开发环境挂载一个 log 函数
+  ```html
+  <div>{{$log(info)}}</div>
+  ```
+  ```js
+  // main.js
+  Vue.prototype.$log = window.console.log;
+  ```
+  ### 事件修饰符
+      .stop:阻止冒泡
+      .sync 修饰符
+      .prevent:阻止默认行为
+      .self:仅绑定元素自身触发
+      .once: 2.1.4 新增,只触发一次
+      .passive: 2.3.0 新增,滚动事件的默认行为 (即滚动行为) 将会立即触发,不能和.prevent 一起使用
+  
+  ### 按键修饰符和按键码
+  场景:有的时候需要监听键盘的行为,如按下 enter 去查询接口等
+  // 对应键盘上的关键字
+  
+      .enter
+      .tab
+      .delete (捕获“删除”和“退格”键)
+      .esc
+      .space
+      .up
+      .down
+      .left
+      .right
+  ### Vue.nextTick
+  场景:页面加载时需要让文本框获取焦点 用法:在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM
+  ```js
+  mounted(){ //因为 mounted 阶段 dom 并未渲染完毕,所以需要$nextTick
+    this.$nextTick(() => {
+      this.$refs.inputs.focus() //通过 $refs 获取dom 并绑定 focus 方法
+    })
+  }
+  
+  ```
+  ### Vue.directive 
+  官方给我们提供了很多指令,但是我们如果想将文字变成指定的颜色定义成指令使用,这个时候就需要用到Vue.directive
+  + 1.bind 只调用一次，指令第一次绑定到元素时候调用，用这个钩子可以定义一个绑定时执行一次的初始化动作。
+  + 2.inserted:被绑定的元素插入父节点的时候调用(父节点存在即可调用，不必存在document中)
+  + 3.update: 被绑定与元素所在模板更新时调用，而且无论绑定值是否有变化，通过比较更新前后的绑定值，忽略不必要的模板更新
+  + 4.componentUpdate :被绑定的元素所在模板完成一次更新更新周期的时候调用
+  + 5.unbind: 只调用一次，指令月元素解绑的时候调用
+  
+  ```js
+  // 全局定义 main.js
+  Vue.directive("change-color",function(el,binding,vnode){
+    el.style["color"]= binding.value;
+  })
+  
+  // 使用
+  <template>
+  <div v-change-color=“color”>message</div>
+  </template>
+  <script>
+    export default{
+      data(){
+        return{
+          color:'green'
+        }
+      }
+    }
+  </script>
+  
+  ```
+  
+  ### Vue.use()
+  场景:我们使用 element时会先 import,再 Vue.use()一下,实际上就是注册组件,触发 install 方法; 这个在组件调用会经常使用到; 会自动组织多次注册相同的插件.
+  
+  ### components和 Vue.component
+  components:局部注册组件
+  ```js
+  export default{
+    components:{home}
+  }
+  ```
+  Vue.component:全局注册组件
+  
+  ```js
+  Vue.component('home',home)
+  ```
+  ### mixins
+  场景:有些组件有些重复的 js 逻辑,如校验手机验证码,解析时间等,mixins 就可以实现这种混入 mixins 值是一个数组
+  ```js
+  const mixin={
+      created(){
+        this.dealTime()
+      },
+      methods:{
+        dealTime(){
+          console.log('这是mixin的dealTime里面的方法');
+        }
+    }
+  }
+  
+  export default{
+    mixins:[mixin]
+  }
+  
+  ```
+  
+  
+  ### Vue.extend
+  场景:vue 组件中有些需要将一些元素挂载到元素上,这个时候 extend 就起到作用了 是构造一个组件的语法器 写法:
+  ```js
+  // 创建构造器
+  var Profile = Vue.extend({
+    template: '<p>{{extendData}}</br>实例传入的数据为:{{propsExtend}}</p>',//template对应的标签最外层必须只有一个标签
+    data: function () {
+      return {
+        extendData: '这是extend扩展的数据',
+      }
+    },
+    props:['propsExtend']
+  })
+  
+  // 创建的构造器可以挂载到元素上,也可以通过 components 或 Vue.component()注册使用
+  // 挂载到一个元素上。可以通过propsData传参.
+  new Profile({propsData:{propsExtend:'我是实例传入的数据'}}).$mount('#app-extend')
+  
+  // 通过 components 或 Vue.component()注册
+  Vue.component('Profile',Profile)
+  
+  ```
+  
+  ### 动态组件
+  场景:做一个 tab 切换时就会涉及到组件动态加载,但是这样每次组件都会重新加载,会消耗大量性能,所以 就起到了作用
+  2020/8/31
+  ```html
+  <keep-alive>
+    <component @is="currentTabComponent"></component>
+  </keep-alive>
+  
+  ```
+  这样切换效果没有动画效果,这个也不用着急,可以利用内置的
+  ```html
+  <transition>
+  <keep-alive>
+    <component v-bind:is="currentTabComponent"></component>
+  </keep-alive>
+  </transition>
+  
+  ```
+  
+  ### 递归组件
+  场景:如果开发一个 tree 组件,里面层级是根据后台数据决定的,这个时候就需要用到动态组件
+  ```html
+  <!--
+  * @author: w_sh
+  * @date: 2018/09/25
+  * @module: 高级搜索组件
+  -->
+  <template>
+    <div>
+      <div v-for="(item,index) in treeArr" :key="index">
+          子组件，当前层级值： {{index}} <br/>
+          <!-- 递归调用自身, 后台判断是否不存在改值 -->
+          <tree :item="item.arr" v-if="item.flag"></tree>
+      </div>
+    </div>
+  </template>
+  ```
+  ```js
+  <script>
+  export default {
+    // 必须定义name，组件内部才能递归调用
+    name: 'tree',
+    data(){
+      return {}
+    },
+    // 接收外部传入的值
+    props: {
+       item: {
+        type:Array,
+        default: ()=>[]
+      }
+    }
+  }
+  </script>
+  ```
+'''
+linesHighlighted: [
+  1
+  7
+  22
+  30
+  43
+  53
+  83
+  86
+  98
+  119
+  142
+  161
+]
+isStarred: false
+isTrashed: false
